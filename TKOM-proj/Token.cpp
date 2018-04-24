@@ -10,7 +10,7 @@ Token::~Token()
 
 void Token::setValue(std::string value)
 {
-	value = value;
+	this->value = value;
 }
 
 Token::TokenType Token::getType()
@@ -33,9 +33,9 @@ std::string Token::toString()
 	if (type == Token::TokenType::Eof)
 		return "End of file";
 	if (type == Token::TokenType::IntVal || type == Token::TokenType::Id)
+	{
 		return value;
-	if (type == Token::TokenType::Undef)
-		return "Undefined";
+	}
 	static const std::unordered_map <Token::TokenType, std::string> knownWords = {
 		{ Token::TokenType::Proc, "PROCEDURE" },
 		{ Token::TokenType::Group, "GROUP" },
@@ -68,6 +68,8 @@ std::string Token::toString()
 		{ Token::TokenType::NotEqual, "NotEqual" },
 		{ Token::TokenType::ConjOp, "Conjunction" },
 		{ Token::TokenType::DisjOp, "Disjoint" },
+		{ Token::TokenType::Quot, "Qutotation" },
+		{ Token::TokenType::Comma, "Comma" },
 	};
 	return knownWords.at(type);
 }

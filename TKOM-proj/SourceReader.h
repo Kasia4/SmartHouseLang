@@ -12,7 +12,7 @@ public:
 	char peek();
 	void clear();
 	std::string finishReading();
-	void ignoreWhiteChars();
+	void ignoreWhiteSpaces();
 	bool isEof();
 	unsigned int getPosition();
 

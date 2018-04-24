@@ -11,11 +11,11 @@ int main(int argc, char** argv)
 	else
 		file = argv[1];
 	std::ifstream input;
-	input.open(file, std::ifstream::in);
+	input.open(file.c_str(), std::ifstream::in);
 	if (!input.is_open())
 	{
-		std::cout << "Error";
-		return 2;
+		std::cout << "Error during opening the file";
+		return 1;
 	}
 	Scanner scanner(input);
 	Token nextToken;
@@ -24,5 +24,6 @@ int main(int argc, char** argv)
 		nextToken = scanner.getNextToken();
 		std::cout << nextToken.toString() << std::endl;
 	} while (nextToken.getType() != Token::TokenType::Eof);
+
 	return 0;
 }

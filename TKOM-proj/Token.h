@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+
 class Token
 {
 public:
@@ -8,6 +9,7 @@ public:
 	enum class TokenType {
 		Eof,
 		Dot,
+		Comma,
 		Semicolon,
 		LBracket,
 		RBracket,
@@ -39,8 +41,8 @@ public:
 		IntVal,
 		BoolTrue,
 		BoolFalse,
-		Id,
-		Undef
+		Quot,
+		Id
 	};
 	Token() = default;
 	Token(const TokenType& type) : type(type) {};

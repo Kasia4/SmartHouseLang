@@ -1,1 +1,9 @@
 GROUP pralki of Pralka;
+pralka.wylacz();
+Pralka pralkaA("1.1.1.1");
+PROCEDURE przykladowa(Piec piecA, Zarowka zarowkaA){
+	piecA.wlacz();
+	zarowkaA.swiec();
+}
+pralki.Foreach(x=>x.wlacz());
+IF zarowkaA.swieci == T THEN zarowkaA.wylacz();

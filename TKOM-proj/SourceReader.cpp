@@ -45,14 +45,14 @@ std::string SourceReader::finishReading()
 	std::string content = buffer;
 	buffer = buffer.substr(position);
 	clear();
-	ignoreWhiteChars();
+	ignoreWhiteSpaces();
 	return content;
 
 }
 
-void SourceReader::ignoreWhiteChars()
+void SourceReader::ignoreWhiteSpaces()
 {
-	if (buffer.empty())
+	if (!buffer.empty())
 		return;
 	while (input && std::isspace(input.peek()))
 		input.get();

@@ -3,7 +3,6 @@
 #include <cctype>
 #include <unordered_map>
 
-
 Scanner::~Scanner()
 {
 }
@@ -16,7 +15,7 @@ Token Scanner::getNextToken()
 		token.setPosition(position);
 		return token;
 	}
-	return Token(Token::TokenType::Undef);
+	throw std::runtime_error("Token undefined");
 }
 
 bool Scanner::checkOperator()
@@ -27,6 +26,12 @@ bool Scanner::checkOperator()
 	if (currChar == '.')
 	{
 		token = Token(Token::TokenType::Dot);
+		source_reader.finishReading();
+		return true;
+	}
+	if (currChar == ',')
+	{
+		token = Token(Token::TokenType::Comma);
 		source_reader.finishReading();
 		return true;
 	}
@@ -57,6 +62,12 @@ bool Scanner::checkOperator()
 	if (currChar == '}')
 	{
 		token = Token(Token::TokenType::RCBracket);
+		source_reader.finishReading();
+		return true;
+	}
+	if (currChar == '"')
+	{
+		token = Token(Token::TokenType::Quot);
 		source_reader.finishReading();
 		return true;
 	}
@@ -112,7 +123,10 @@ bool Scanner::checkOperator()
 			return true;
 		}
 		else
+		{
+			source_reader.clear();
 			return false; //blad
+		}
 	}
 	if (currChar == '&')
 	{
@@ -124,7 +138,10 @@ bool Scanner::checkOperator()
 			return true;
 		}
 		else
+		{
+			source_reader.clear();
 			return false; //blad
+		}
 	}
 	if (currChar == '|')
 	{
@@ -136,7 +153,10 @@ bool Scanner::checkOperator()
 			return true;
 		}
 		else
+		{
+			source_reader.clear();
 			return false; //blad
+		}
 	}
 	if (currChar == '*')
 	{
