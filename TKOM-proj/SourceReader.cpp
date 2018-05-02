@@ -1,11 +1,5 @@
 #include "SourceReader.h"
 
-
-
-SourceReader::~SourceReader()
-{
-}
-
 char SourceReader::getNextChar()
 {
 	char nextChar;

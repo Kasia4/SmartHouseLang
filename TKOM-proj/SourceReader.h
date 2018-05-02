@@ -7,7 +7,7 @@ class SourceReader
 {
 public:
 	SourceReader(std::istream&input): input(input), position(0) {};
-	~SourceReader();
+	~SourceReader() = default;
 	char getNextChar();
 	char peek();
 	void clear();

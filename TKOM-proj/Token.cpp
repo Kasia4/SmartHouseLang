@@ -3,11 +3,6 @@
 #include "Token.h"
 
 
-
-Token::~Token()
-{
-}
-
 void Token::setValue(std::string value)
 {
 	this->value = value;

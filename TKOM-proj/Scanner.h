@@ -8,7 +8,7 @@ class Scanner
 public:
 	Scanner() = default;
 	Scanner(std::istream& input) : source_reader(input) {};
-	~Scanner();
+	~Scanner() = default;
 
 	Token getNextToken();
 	bool checkOperator();
@@ -22,7 +22,7 @@ private:
 	std::string clearBuffer();
 	std::string getInt();
 	std::string getWord();
-
+// TODO add columns and rows to position
 	unsigned int position;
 	SourceReader source_reader;
 	Token token;

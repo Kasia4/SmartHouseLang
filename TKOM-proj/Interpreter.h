@@ -2,7 +2,7 @@
 class Interpreter
 {
 public:
-	Interpreter();
-	~Interpreter();
+	Interpreter() = default;
+	~Interpreter() = default;
 };
 

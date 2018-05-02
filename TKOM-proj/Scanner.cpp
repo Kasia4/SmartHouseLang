@@ -3,9 +3,6 @@
 #include <cctype>
 #include <unordered_map>
 
-Scanner::~Scanner()
-{
-}
 
 Token Scanner::getNextToken()
 {

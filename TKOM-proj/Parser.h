@@ -2,7 +2,7 @@
 class Parser
 {
 public:
-	Parser();
-	~Parser();
+	Parser() = default;
+	~Parser() = default;
 };
 

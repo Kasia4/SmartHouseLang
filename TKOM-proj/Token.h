@@ -44,14 +44,17 @@ public:
 		Quot,
 		Id
 	};
+
 	Token() = default;
 	Token(const TokenType& type) : type(type) {};
-	~Token();
+	~Token() = default;
+
 	void setValue(std::string value);
 	Token::TokenType getType();
 	void setPosition(unsigned int position);
 	unsigned int getPosition();
 	std::string toString();
+
 private:
 	TokenType type;
 	std::string value;
