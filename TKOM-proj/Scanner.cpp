@@ -43,54 +43,7 @@ bool Scanner::checkOperator()
 		source_reader.finishReading();
 		return true;
 	}
-	/*if (currChar == '.')
-	{
-		token = Token(Token::TokenType::Dot);
-		source_reader.finishReading();
-		return true;
-	}
-	if (currChar == ',')
-	{
-		token = Token(Token::TokenType::Comma);
-		source_reader.finishReading();
-		return true;
-	}
-	if (currChar == ';')
-	{
-		token = Token(Token::TokenType::Semicolon);
-		source_reader.finishReading();
-		return true;
-	}
-	if (currChar == '(')
-	{
-		token = Token(Token::TokenType::LBracket);
-		source_reader.finishReading();
-		return true;
-	}
-	if (currChar == ')')
-	{
-		token = Token(Token::TokenType::RBracket);
-		source_reader.finishReading();
-		return true;
-	}
-	if (currChar == '{')
-	{
-		token = Token(Token::TokenType::LCBracket);
-		source_reader.finishReading();
-		return true;
-	}
-	if (currChar == '}')
-	{
-		token = Token(Token::TokenType::RCBracket);
-		source_reader.finishReading();
-		return true;
-	}
-	if (currChar == '"')
-	{
-		token = Token(Token::TokenType::Quot);
-		source_reader.finishReading();
-		return true;
-	}*/
+
 	if (currChar == '>')
 	{
 		if (source_reader.peek() == '=')
@@ -178,30 +131,6 @@ bool Scanner::checkOperator()
 			return false; //blad
 		}
 	}
-	/*if (currChar == '*')
-	{
-		token = Token(Token::TokenType::MultOp);
-		source_reader.finishReading();
-		return true;
-	}
-	if (currChar == '/')
-	{
-		token = Token(Token::TokenType::DivOp);
-		source_reader.finishReading();
-		return true;
-	}
-	if (currChar == '+')
-	{
-		token = Token(Token::TokenType::AddOp);
-		source_reader.finishReading();
-		return true;
-	}
-	if (currChar == '-')
-	{
-		token = Token(Token::TokenType::SubOp);
-		source_reader.finishReading();
-		return true;
-	}*/
 
 	source_reader.clear();
 	return false;
