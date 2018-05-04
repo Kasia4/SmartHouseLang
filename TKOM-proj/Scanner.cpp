@@ -19,8 +19,31 @@ bool Scanner::checkOperator()
 {
 	if (std::isalnum(source_reader.peek()))
 		return false;
+	
 	char currChar = source_reader.getNextChar();
-	if (currChar == '.')
+	static const std::unordered_map <char, Token::TokenType> operators = {
+		{ '.', Token::TokenType::Dot },
+		{ ',', Token::TokenType::Comma },
+		{ ';', Token::TokenType::Semicolon },
+		{ '(', Token::TokenType::LBracket },
+		{ ')', Token::TokenType::RBracket },
+		{ '{', Token::TokenType::LCBracket },
+		{ '}', Token::TokenType::RCBracket },
+		{ '"', Token::TokenType::Quot},
+		{ '*', Token::TokenType::MultOp },
+		{ '/', Token::TokenType::DivOp },
+		{ '+', Token::TokenType::AddOp },
+		{ '-', Token::TokenType::SubOp }
+	};
+	
+	auto op = operators.find(currChar);
+	if (op != operators.end())
+	{
+		token = Token(op->second);
+		source_reader.finishReading();
+		return true;
+	}
+	/*if (currChar == '.')
 	{
 		token = Token(Token::TokenType::Dot);
 		source_reader.finishReading();
@@ -67,7 +90,7 @@ bool Scanner::checkOperator()
 		token = Token(Token::TokenType::Quot);
 		source_reader.finishReading();
 		return true;
-	}
+	}*/
 	if (currChar == '>')
 	{
 		if (source_reader.peek() == '=')
@@ -155,7 +178,7 @@ bool Scanner::checkOperator()
 			return false; //blad
 		}
 	}
-	if (currChar == '*')
+	/*if (currChar == '*')
 	{
 		token = Token(Token::TokenType::MultOp);
 		source_reader.finishReading();
@@ -178,7 +201,7 @@ bool Scanner::checkOperator()
 		token = Token(Token::TokenType::SubOp);
 		source_reader.finishReading();
 		return true;
-	}
+	}*/
 
 	source_reader.clear();
 	return false;
