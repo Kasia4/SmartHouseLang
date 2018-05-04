@@ -1,5 +1,7 @@
 *.opendb
 *.db
+*.log
+*.tlog
 .vs/
 Debug/
 TKOM-proj/Debug/
