@@ -4,9 +4,8 @@
 #include "../TKOM-proj/SourceReader.cpp"
 #include "../TKOM-proj/Position.cpp"
 
-// TODO Change all tests with position after improvements in SourceReader class
 void SourceReaderTest::SetUp() {
-	test_input.open("unit_tests", std::ios::in | std::ios::out | std::ios::trunc);
+	test_input.open("unit_tests.txt", std::ios::in | std::ios::out | std::ios::trunc);
 	sourceReader = std::make_unique<SourceReader>(test_input);
 }
 void SourceReaderTest::TearDown() {

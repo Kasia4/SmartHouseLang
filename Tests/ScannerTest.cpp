@@ -5,7 +5,7 @@
 #include "../TKOM-proj/Token.cpp"
 
 void ScannerTest::SetUp() {
-	test_input.open("unit_tests", std::ios::in | std::ios::out | std::ios::trunc);
+	test_input.open("unit_tests.txt", std::ios::in | std::ios::out | std::ios::trunc);
 	test_scanner = std::make_unique<Scanner>(test_input);
 }
 void ScannerTest::TearDown() {
@@ -59,6 +59,7 @@ TEST_F(ScannerTest, testGetIntType)
 	auto token = test_scanner->getNextToken();
 	EXPECT_EQ(token.getType(), Token::TokenType::IntVal);
 }
+
 TEST_F(ScannerTest, testGetIntValue)
 {
 	writeFile("piec.ustawTemp(150)");
@@ -67,6 +68,7 @@ TEST_F(ScannerTest, testGetIntValue)
 	auto token = test_scanner->getNextToken();
 	EXPECT_EQ(token.toString(), "150");
 }
+
 TEST_F(ScannerTest, testGetOperatorType)
 {
 	writeFile("piec.ustawTemp(150)");
@@ -75,6 +77,7 @@ TEST_F(ScannerTest, testGetOperatorType)
 	auto token = test_scanner->getNextToken();
 	EXPECT_EQ(token.getType(), Token::TokenType::LBracket);
 }
+
 TEST_F(ScannerTest, testGetOperatorValue)
 {
 	writeFile("piec.ustawTemp(150)");

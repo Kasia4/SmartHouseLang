@@ -10,7 +10,7 @@ protected:
 	virtual void SetUp();
 	virtual void TearDown();
 	void writeFile(std::string content);
-//private:
+
 	std::fstream test_input;
 	std::unique_ptr<Scanner> test_scanner;
 
