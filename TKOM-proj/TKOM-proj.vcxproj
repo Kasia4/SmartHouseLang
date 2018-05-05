@@ -121,7 +121,7 @@
     <ClInclude Include="Ident.h" />
     <ClInclude Include="IntConstant.h" />
     <ClInclude Include="Interpreter.h" />
-    <ClInclude Include="LogicalExpression.h" />
+    <ClInclude Include="BoolExpression.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Procedure.h" />

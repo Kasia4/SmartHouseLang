@@ -51,10 +51,10 @@
     <ClInclude Include="EvalExpression.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="LogicalExpression.h">
+    <ClInclude Include="BoolValue.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="BoolValue.h">
+    <ClInclude Include="BoolExpression.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>

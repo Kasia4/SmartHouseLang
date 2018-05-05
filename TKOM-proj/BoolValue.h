@@ -1,7 +1,7 @@
 #pragma once
-#include "LogicalExpression.h"
+#include "BoolExpression.h"
 class BoolValue :
-	public LogicalExpression
+	public BoolExpression
 {
 public:
 	BoolValue() = default;
