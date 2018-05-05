@@ -3,8 +3,8 @@
 #include <functional>
 int EvalExpression::calculate() const
 {
-	int leftValue = l_operand->calculate();
-	int rightValue = r_operand->calculate();
+	auto leftValue = l_operand->calculate();
+	auto rightValue = r_operand->calculate();
 	return calculate(leftValue, rightValue);
 }
 
