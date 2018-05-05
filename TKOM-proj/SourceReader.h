@@ -3,22 +3,21 @@
 #include <istream>
 #include <cctype>
 
+#include "Position.h"
+
 class SourceReader
 {
 public:
-	SourceReader(std::istream&input): input(input), position(0) {};
+	SourceReader(std::istream&input): input(input) {};
 	~SourceReader() = default;
 	char getNextChar();
 	char peek();
-	void clear();
-	std::string finishReading();
 	void ignoreWhiteSpaces();
 	bool isEof();
-	unsigned int getPosition();
-
+	Position getPosition();
 private:
 	std::istream& input;
-	unsigned int position;
-	std::string buffer;
+	Position position;
+	void updatePosition(char getChar);
 };
 

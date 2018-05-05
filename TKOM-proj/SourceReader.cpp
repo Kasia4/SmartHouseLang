@@ -2,62 +2,37 @@
 
 char SourceReader::getNextChar()
 {
-	char nextChar;
-	if (position >= buffer.size())
-	{
-		nextChar = input.get();
-		buffer += nextChar;
-	}
-	else
-	{
-		nextChar = buffer[position];
-	}
-	++position;
+	char nextChar = input.get();
+	updatePosition(nextChar);
 	return nextChar;
 }
 
 char SourceReader::peek()
 {
-	char nextChar;
-	if (position >= buffer.size())
-	{
-		nextChar = input.peek();
-	}
-	else {
-		nextChar = buffer[position];
-	}
-	return nextChar;
+	return input.peek();
 }
 
-void SourceReader::clear()
-{
-	position = 0;
-}
-
-std::string SourceReader::finishReading()
-{
-	std::string content = buffer;
-	buffer = buffer.substr(position);
-	clear();
-	ignoreWhiteSpaces();
-	return content;
-
-}
 
 void SourceReader::ignoreWhiteSpaces()
 {
-	if (!buffer.empty())
-		return;
 	while (input && std::isspace(input.peek()))
-		input.get();
+		updatePosition(input.get());
 }
 
 bool SourceReader::isEof()
 {
-	return buffer.size() == 0 && input.eof();
+	return input.peek() == -1 || input.eof();
 }
 
-unsigned int SourceReader::getPosition()
+Position SourceReader::getPosition()
 {
 	return position;
+}
+
+void SourceReader::updatePosition(char getChar)
+{
+	if (getChar == '\n')
+		position.updatePositionRow();
+	else
+		position.updatePositionColumn();
 }

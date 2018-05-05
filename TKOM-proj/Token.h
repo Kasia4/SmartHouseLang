@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "Position.h"
 
 class Token
 {
@@ -51,13 +52,13 @@ public:
 
 	void setValue(std::string value);
 	Token::TokenType getType();
-	void setPosition(unsigned int position);
-	unsigned int getPosition();
+	void setPosition(Position position);
+	Position getPosition();
 	std::string toString();
 
 private:
 	TokenType type;
 	std::string value;
-	unsigned int position;
+	Position position;
 };
 

@@ -19,11 +19,9 @@ public:
 private:
 	void ignoreWhiteSpaces();
 	bool checkKeyword(std::string word);
-	std::string clearBuffer();
 	std::string getInt();
 	std::string getWord();
-// TODO add columns and rows to position
-	unsigned int position;
+	Position position;
 	SourceReader source_reader;
 	Token token;
 };

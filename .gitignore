@@ -2,6 +2,10 @@
 *.db
 *.log
 *.tlog
+*.obj
+*.pch
+*.idb
+*.pdb
 .vs/
 Debug/
 TKOM-proj/Debug/

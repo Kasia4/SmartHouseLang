@@ -9,6 +9,7 @@ Token Scanner::getNextToken()
 	position = source_reader.getPosition();
 	if (checkEof() || checkOperator() || checkValue() || checkIdentifier())
 	{
+		source_reader.ignoreWhiteSpaces();
 		token.setPosition(position);
 		return token;
 	}
@@ -40,7 +41,6 @@ bool Scanner::checkOperator()
 	if (op != operators.end())
 	{
 		token = Token(op->second);
-		source_reader.finishReading();
 		return true;
 	}
 
@@ -53,7 +53,6 @@ bool Scanner::checkOperator()
 		}
 		else
 			token = Token(Token::TokenType::Greater);
-		source_reader.finishReading();
 		return true;
 	}
 	if (currChar == '<')
@@ -65,7 +64,6 @@ bool Scanner::checkOperator()
 		}
 		else
 			token = Token(Token::TokenType::Less);
-		source_reader.finishReading();
 		return true;
 	}
 	if (currChar == '=')
@@ -83,7 +81,6 @@ bool Scanner::checkOperator()
 		}
 		else
 			token = Token(Token::TokenType::AssignOp);
-		source_reader.finishReading();
 		return true;
 	}
 	if (currChar == '!')
@@ -92,14 +89,10 @@ bool Scanner::checkOperator()
 		{
 			token = Token(Token::TokenType::NotEqual);
 			source_reader.getNextChar();
-			source_reader.finishReading();
 			return true;
 		}
 		else
-		{
-			source_reader.clear();
 			return false; //blad
-		}
 	}
 	if (currChar == '&')
 	{
@@ -107,14 +100,10 @@ bool Scanner::checkOperator()
 		{
 			token = Token(Token::TokenType::ConjOp);
 			source_reader.getNextChar();
-			source_reader.finishReading();
 			return true;
 		}
 		else
-		{
-			source_reader.clear();
 			return false; //blad
-		}
 	}
 	if (currChar == '|')
 	{
@@ -122,17 +111,12 @@ bool Scanner::checkOperator()
 		{
 			token = Token(Token::TokenType::DisjOp);
 			source_reader.getNextChar();
-			source_reader.finishReading();
 			return true;
 		}
 		else
-		{
-			source_reader.clear();
 			return false; //blad
-		}
 	}
 
-	source_reader.clear();
 	return false;
 }
 
@@ -150,16 +134,13 @@ bool Scanner::checkIdentifier()
 {
 	std::string word = getWord();
 	if (word.empty())
-	{
-		source_reader.clear();
 		return false;
-	}
+
 	if (!checkKeyword(word))
 	{
 		token = Token(Token::TokenType::Id);
 		token.setValue(word);
 	}
-	source_reader.finishReading();
 	return true;
 	
 }
@@ -167,14 +148,11 @@ bool Scanner::checkIdentifier()
 bool Scanner::checkValue()
 {
 	if (!isdigit(source_reader.peek()))
-	{
-		source_reader.clear();
 		return false;
-	}
+
 	std::string value = getInt();
 	token = Token(Token::TokenType::IntVal);
 	token.setValue(value);
-	source_reader.finishReading();
 	return true;
 }
 
@@ -215,9 +193,7 @@ std::string Scanner::getWord()
 {
 	std::string word;
 	if (!isalpha(source_reader.peek()))
-	{
 		return word;
-	}
 	do
 	{
 		word += source_reader.getNextChar();

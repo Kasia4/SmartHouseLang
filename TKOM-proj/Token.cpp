@@ -13,12 +13,12 @@ Token::TokenType Token::getType()
 	return type;
 }
 
-void Token::setPosition(unsigned int position)
+void Token::setPosition(Position position)
 {
 	position = position;
 }
 
-unsigned int Token::getPosition()
+Position Token::getPosition()
 {
 	return position;
 }

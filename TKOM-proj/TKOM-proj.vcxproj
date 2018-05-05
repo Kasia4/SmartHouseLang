@@ -118,8 +118,11 @@
     <ClInclude Include="Ident.h" />
     <ClInclude Include="Interpreter.h" />
     <ClInclude Include="Parser.h" />
+    <ClInclude Include="Position.h" />
+    <ClInclude Include="Procedure.h" />
     <ClInclude Include="Scanner.h" />
     <ClInclude Include="SourceReader.h" />
+    <ClInclude Include="Statement.h" />
     <ClInclude Include="Token.h" />
   </ItemGroup>
   <ItemGroup>
@@ -127,8 +130,11 @@
     <ClCompile Include="Interpreter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="Position.cpp" />
+    <ClCompile Include="Procedure.cpp" />
     <ClCompile Include="Scanner.cpp" />
     <ClCompile Include="SourceReader.cpp" />
+    <ClCompile Include="Statement.cpp" />
     <ClCompile Include="Token.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
