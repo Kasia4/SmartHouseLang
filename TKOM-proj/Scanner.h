@@ -17,7 +17,6 @@ public:
 	bool checkValue();
 
 private:
-	void ignoreWhiteSpaces();
 	bool checkKeyword(std::string word);
 	std::string getInt();
 	std::string getWord();

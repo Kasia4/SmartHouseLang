@@ -115,7 +115,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ArithmExpression.h" />
     <ClInclude Include="Ident.h" />
+    <ClInclude Include="IntConstant.h" />
     <ClInclude Include="Interpreter.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Position.h" />
@@ -127,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ident.cpp" />
+    <ClCompile Include="IntConstant.cpp" />
     <ClCompile Include="Interpreter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Parser.cpp" />
