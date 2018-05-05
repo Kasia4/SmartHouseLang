@@ -126,6 +126,7 @@
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Procedure.h" />
+    <ClInclude Include="RelExpression.h" />
     <ClInclude Include="Scanner.h" />
     <ClInclude Include="SourceReader.h" />
     <ClInclude Include="Statement.h" />
@@ -142,6 +143,7 @@
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Procedure.cpp" />
+    <ClCompile Include="RelExpression.cpp" />
     <ClCompile Include="Scanner.cpp" />
     <ClCompile Include="SourceReader.cpp" />
     <ClCompile Include="Statement.cpp" />
