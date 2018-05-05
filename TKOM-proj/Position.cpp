@@ -13,3 +13,8 @@ void Position::updatePositionColumn()
 	++column;
 	++charnum;
 }
+
+unsigned int Position::getCharNum()
+{
+	return charnum;
+}

@@ -29,6 +29,11 @@ Position SourceReader::getPosition()
 	return position;
 }
 
+unsigned int SourceReader::getCharNum()
+{
+	return position.getCharNum();
+}
+
 void SourceReader::updatePosition(char getChar)
 {
 	if (getChar == '\n')

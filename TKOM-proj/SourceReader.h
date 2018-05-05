@@ -15,6 +15,7 @@ public:
 	void ignoreWhiteSpaces();
 	bool isEof();
 	Position getPosition();
+	unsigned int getCharNum();
 private:
 	std::istream& input;
 	Position position;

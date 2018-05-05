@@ -8,6 +8,7 @@ public:
 
 	void updatePositionRow();
 	void updatePositionColumn();
+	unsigned int getCharNum();
 
 private:
 	unsigned int row;
