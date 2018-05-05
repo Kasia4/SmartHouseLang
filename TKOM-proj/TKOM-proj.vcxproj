@@ -116,10 +116,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ArithmExpression.h" />
+    <ClInclude Include="BoolValue.h" />
     <ClInclude Include="EvalExpression.h" />
     <ClInclude Include="Ident.h" />
     <ClInclude Include="IntConstant.h" />
     <ClInclude Include="Interpreter.h" />
+    <ClInclude Include="LogicalExpression.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Procedure.h" />
@@ -129,6 +131,7 @@
     <ClInclude Include="Token.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BoolValue.cpp" />
     <ClCompile Include="EvalExpression.cpp" />
     <ClCompile Include="Ident.cpp" />
     <ClCompile Include="IntConstant.cpp" />
