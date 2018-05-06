@@ -8,6 +8,7 @@
 class SourceReader
 {
 public:
+	SourceReader() = delete;
 	SourceReader(std::istream&input): input(input) {};
 	~SourceReader() = default;
 	char getNextChar();

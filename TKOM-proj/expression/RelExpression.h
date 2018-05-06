@@ -2,7 +2,7 @@
 #include <memory>
 #include "BoolExpression.h"
 #include "ArithmExpression.h"
-#include "Token.h"
+#include "../Token.h"
 class RelExpression :
 	public BoolExpression
 {

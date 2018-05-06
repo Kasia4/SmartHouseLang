@@ -42,25 +42,25 @@
     <ClInclude Include="Position.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="ArithmExpression.h">
+    <ClInclude Include="expression/ArithmExpression.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="IntConstant.h">
+    <ClInclude Include="expression/IntConstant.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="EvalExpression.h">
+    <ClInclude Include="expression/EvalExpression.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="BoolValue.h">
+    <ClInclude Include="expression/BoolValue.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="BoolExpression.h">
+    <ClInclude Include="expression/BoolExpression.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="LogicalExpression.h">
+    <ClInclude Include="expression/LogicalExpression.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="RelExpression.h">
+    <ClInclude Include="expression/RelExpression.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
@@ -95,19 +95,19 @@
     <ClCompile Include="Position.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="IntConstant.cpp">
+    <ClCompile Include="expression/IntConstant.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="EvalExpression.cpp">
+    <ClCompile Include="expression/EvalExpression.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="BoolValue.cpp">
+    <ClCompile Include="expression/BoolValue.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="LogicalExpression.cpp">
+    <ClCompile Include="expression/LogicalExpression.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="RelExpression.cpp">
+    <ClCompile Include="expression/RelExpression.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>

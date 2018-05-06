@@ -68,3 +68,4 @@ std::string Token::toString()
 	};
 	return knownWords.at(type);
 }
+

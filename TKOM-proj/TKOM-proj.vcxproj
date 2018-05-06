@@ -115,35 +115,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ArithmExpression.h" />
-    <ClInclude Include="BoolValue.h" />
-    <ClInclude Include="EvalExpression.h" />
+    <ClInclude Include="expression/ArithmExpression.h" />
+    <ClInclude Include="expression/BoolValue.h" />
+    <ClInclude Include="expression/EvalExpression.h" />
     <ClInclude Include="Ident.h" />
-    <ClInclude Include="IntConstant.h" />
+    <ClInclude Include="expression/IntConstant.h" />
     <ClInclude Include="Interpreter.h" />
-    <ClInclude Include="BoolExpression.h" />
-    <ClInclude Include="LogicalExpression.h" />
+    <ClInclude Include="expression/BoolExpression.h" />
+    <ClInclude Include="expression/LogicalExpression.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Procedure.h" />
-    <ClInclude Include="RelExpression.h" />
+    <ClInclude Include="expression/RelExpression.h" />
     <ClInclude Include="Scanner.h" />
     <ClInclude Include="SourceReader.h" />
     <ClInclude Include="Statement.h" />
     <ClInclude Include="Token.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BoolValue.cpp" />
-    <ClCompile Include="EvalExpression.cpp" />
+    <ClCompile Include="expression/BoolValue.cpp" />
+    <ClCompile Include="expression/EvalExpression.cpp" />
     <ClCompile Include="Ident.cpp" />
-    <ClCompile Include="IntConstant.cpp" />
+    <ClCompile Include="expression/IntConstant.cpp" />
     <ClCompile Include="Interpreter.cpp" />
-    <ClCompile Include="LogicalExpression.cpp" />
+    <ClCompile Include="expression/LogicalExpression.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Procedure.cpp" />
-    <ClCompile Include="RelExpression.cpp" />
+    <ClCompile Include="expression/RelExpression.cpp" />
     <ClCompile Include="Scanner.cpp" />
     <ClCompile Include="SourceReader.cpp" />
     <ClCompile Include="Statement.cpp" />

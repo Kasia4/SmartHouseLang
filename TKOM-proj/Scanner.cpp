@@ -16,6 +16,11 @@ Token Scanner::getNextToken()
 	throw std::runtime_error("Token undefined");
 }
 
+Token Scanner::getCurrToken()
+{
+	return token;
+}
+
 bool Scanner::checkOperator()
 {
 	if (std::isalnum(source_reader.peek()))

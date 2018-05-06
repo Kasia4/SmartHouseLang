@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include "BoolExpression.h"
-#include "Token.h"
+#include "../Token.h"
 class LogicalExpression :
 	public BoolExpression
 {

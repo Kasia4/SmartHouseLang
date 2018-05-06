@@ -2,7 +2,7 @@
 #include <memory>
 
 #include "ArithmExpression.h"
-#include "Token.h"
+#include "../Token.h"
 
 class EvalExpression :
 	public ArithmExpression

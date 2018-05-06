@@ -6,11 +6,12 @@
 class Scanner
 {
 public:
-	Scanner() = default;
+	Scanner() = delete;
 	Scanner(std::istream& input) : source_reader(input) {};
 	~Scanner() = default;
 
 	Token getNextToken();
+	Token getCurrToken();
 	bool checkOperator();
 	bool checkEof();
 	bool checkIdentifier();
