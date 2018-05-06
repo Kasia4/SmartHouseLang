@@ -118,6 +118,7 @@
     <ClInclude Include="expression/ArithmExpression.h" />
     <ClInclude Include="expression/BoolValue.h" />
     <ClInclude Include="expression/EvalExpression.h" />
+    <ClInclude Include="expression\RelExpression.h" />
     <ClInclude Include="Ident.h" />
     <ClInclude Include="expression/IntConstant.h" />
     <ClInclude Include="Interpreter.h" />
@@ -126,7 +127,6 @@
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Procedure.h" />
-    <ClInclude Include="expression/RelExpression.h" />
     <ClInclude Include="Scanner.h" />
     <ClInclude Include="SourceReader.h" />
     <ClInclude Include="Statement.h" />

@@ -60,7 +60,7 @@
     <ClInclude Include="expression/LogicalExpression.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="expression/RelExpression.h">
+    <ClInclude Include="expression\RelExpression.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,22 +1,43 @@
 #include "Parser.h"
 #include <algorithm>
-//ArithmExpressionPtr Parser::parseArithmExpression()
-//{
-//	auto leftEval = parseSubExpression();
-//	while (isAcceptableTokenType({TokenType::AddOp, TokenType::SubOp}))
-//		leftEval = parseArithmExpression(std::move(leftEval));
-//	return leftEval;
-//}
-//
-//ArithmExpressionPtr Parser::parseArithmExpression(ArithmExpressionPtr leftEval)
-//{
-//	TokenType exp_operator = requireToken()
-//}
-//
-//ArithmExpressionPtr Parser::parseSubExpression()
-//{
-//	
-//}
+
+ArithmExpressionPtr Parser::parseArithmExpression()
+{
+	auto leftEval = parseSubAddExpression();
+	while (isAcceptableTokenType(add_operators))
+		leftEval = parseArithmExpression(std::move(leftEval));
+	return leftEval;
+}
+
+ArithmExpressionPtr Parser::parseArithmExpression(ArithmExpressionPtr leftEval)
+{
+	TokenType exp_operator = requireToken(add_operators).getType();
+	auto rightEval = parseSubAddExpression();
+	return std::make_unique<EvalExpression>(std::move(leftEval), std::move(rightEval), exp_operator);
+
+}
+
+ArithmExpressionPtr Parser::parseSubAddExpression()
+{
+	auto leftEval = parseSubMultExpression();
+	while (isAcceptableTokenType(mult_operators))
+		leftEval = parseSubAddExpression(std::move(leftEval));
+	return leftEval;
+}
+
+ArithmExpressionPtr Parser::parseSubAddExpression(ArithmExpressionPtr leftEval)
+{
+	TokenType exp_operator = requireToken(mult_operators).getType();
+	auto rightEval = parseSubMultExpression();
+	return std::make_unique<EvalExpression>(std::move(leftEval), std::move(rightEval), exp_operator);
+}
+
+ArithmExpressionPtr Parser::parseSubMultExpression()
+{
+	Token simp_value = requireToken({ TokenType::IntVal });
+	return std::make_unique<IntConstant>(1);
+
+}
 
 bool Parser::isAcceptableTokenType(const std::initializer_list<TokenType>& accept_types) const
 {
@@ -40,3 +61,5 @@ void Parser::consumeToken()
 {
 	scanner->getNextToken();
 }
+
+
