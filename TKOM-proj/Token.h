@@ -55,6 +55,7 @@ public:
 	void setPosition(Position position);
 	Position getPosition();
 	std::string toString();
+	std::string getValue();
 
 private:
 	TokenType type;

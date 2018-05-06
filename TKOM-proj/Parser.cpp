@@ -32,11 +32,53 @@ ArithmExpressionPtr Parser::parseSubAddExpression(ArithmExpressionPtr leftEval)
 	return std::make_unique<EvalExpression>(std::move(leftEval), std::move(rightEval), exp_operator);
 }
 
+BoolExpressionPtr Parser::parseBoolExpression(BoolExpressionPtr leftEval)
+{
+	TokenType exp_operator = requireToken(log_operators).getType();
+	auto rightEval = parseSubLogExpression();
+	return std::make_unique<LogicalExpression>(std::move(leftEval), std::move(rightEval), exp_operator);
+}
+
 ArithmExpressionPtr Parser::parseSubMultExpression()
 {
 	Token simp_value = requireToken({ TokenType::IntVal });
-	return std::make_unique<IntConstant>(1);
+	return std::make_unique<IntConstant>(simp_value.getValue());
 
+}
+
+BoolExpressionPtr Parser::parseBoolExpression()
+{
+	auto leftEval = parseSubLogExpression();
+	if (isAcceptableTokenType(log_operators))
+		leftEval = parseBoolExpression(std::move(leftEval));
+	return leftEval;
+}
+
+BoolExpressionPtr Parser::parseSubLogExpression()
+{
+	BoolExpressionPtr leftEval;
+	if (isAcceptableTokenType({ TokenType::BoolTrue, TokenType::BoolFalse }))
+		leftEval = parseBoolValue();
+	else
+		leftEval = parseSubRelExpression();
+	return leftEval;
+}
+
+
+BoolExpressionPtr Parser::parseSubRelExpression()
+{
+	ArithmExpressionPtr leftValue = parseArithmExpression();
+	TokenType ex_operator = requireToken(rel_operators).getType();
+	ArithmExpressionPtr rightValue = parseArithmExpression();
+	return std::make_unique<RelExpression>(std::move(leftValue), std::move(rightValue), ex_operator);
+}
+
+BoolExpressionPtr Parser::parseBoolValue()
+{
+	Token simp_value = requireToken({ TokenType::BoolFalse, TokenType::BoolTrue });
+	if (simp_value.getType() == TokenType::BoolTrue)
+		std::make_unique<BoolValue>(true);
+	return std::make_unique<BoolValue>(false);
 }
 
 bool Parser::isAcceptableTokenType(const std::initializer_list<TokenType>& accept_types) const

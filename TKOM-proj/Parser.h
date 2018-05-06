@@ -5,8 +5,13 @@
 #include "expression/ArithmExpression.h"
 #include "expression/EvalExpression.h"
 #include "expression/IntConstant.h"
+#include "expression/BoolExpression.h"
+#include "expression/RelExpression.h"
+#include "expression/LogicalExpression.h"
+#include "expression/BoolValue.h"
 using ScannerPtr = std::unique_ptr<Scanner>;
 using ArithmExpressionPtr = std::unique_ptr<ArithmExpression>;
+using BoolExpressionPtr = std::unique_ptr<BoolExpression>;
 using TokenType = Token::TokenType;
 class Parser
 {
@@ -19,19 +24,28 @@ public:
 		log_operators = { TokenType::ConjOp, TokenType::DisjOp };
 		rel_operators = { TokenType::Greater, TokenType::GreaterOrEq,
 						  TokenType::Less, TokenType::LessOrEq,
-						  TokenType::Equal, TokenType::NotEqual, };
+						  TokenType::Equal, TokenType::NotEqual };
 	};
 	~Parser() = default;
-
+	//TODO (after whole expr impl) consider templates or traits
 	ArithmExpressionPtr parseArithmExpression();
 	ArithmExpressionPtr parseSubAddExpression();
 	ArithmExpressionPtr parseSubMultExpression();
+
+	BoolExpressionPtr parseBoolExpression();
+	BoolExpressionPtr parseSubLogExpression();
+	BoolExpressionPtr parseSubRelExpression();
+	BoolExpressionPtr parseBoolValue();
+
 	bool isAcceptableTokenType(const std::initializer_list<TokenType>& accept_types) const;
 	Token requireToken(const std::initializer_list<TokenType>& accept_types);
 	void consumeToken();
 private:
 	ArithmExpressionPtr parseArithmExpression(ArithmExpressionPtr leftEval);
 	ArithmExpressionPtr parseSubAddExpression(ArithmExpressionPtr leftEval);
+
+	//TODO (after statements impl) Add equality and non-equality check
+	BoolExpressionPtr parseBoolExpression(BoolExpressionPtr leftEval);
 
 	ScannerPtr scanner;
 	std::initializer_list<TokenType> add_operators;
