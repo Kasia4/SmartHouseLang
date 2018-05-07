@@ -104,4 +104,18 @@ void Parser::consumeToken()
 	scanner->getNextToken();
 }
 
+VariablePtr Parser::parseVarDeclaration()
+{
+	std::string type = requireToken({ TokenType::Id }).getValue();
+	std::string identifier = requireToken({ TokenType::Id }).getValue();
+	std::string bind_addr = parseDevAddress();
+	return std::make_unique<Variable>(type, identifier, bind_addr);
+}
 
+std::string Parser::parseDevAddress()
+{
+	//TODO add ip parsing
+	//requireToken({ TokenType::LBracket });
+	//requireToken({ TokenType::Quot });
+	return "test";
+}

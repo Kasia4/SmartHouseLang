@@ -119,7 +119,6 @@
     <ClInclude Include="expression/BoolValue.h" />
     <ClInclude Include="expression/EvalExpression.h" />
     <ClInclude Include="expression\RelExpression.h" />
-    <ClInclude Include="Ident.h" />
     <ClInclude Include="expression/IntConstant.h" />
     <ClInclude Include="Interpreter.h" />
     <ClInclude Include="expression/BoolExpression.h" />
@@ -129,13 +128,14 @@
     <ClInclude Include="Procedure.h" />
     <ClInclude Include="Scanner.h" />
     <ClInclude Include="SourceReader.h" />
-    <ClInclude Include="Statement.h" />
+    <ClInclude Include="statement/BlockStatement.h" />
+    <ClInclude Include="statement/Statement.h" />
     <ClInclude Include="Token.h" />
+    <ClInclude Include="Variable.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="expression/BoolValue.cpp" />
     <ClCompile Include="expression/EvalExpression.cpp" />
-    <ClCompile Include="Ident.cpp" />
     <ClCompile Include="expression/IntConstant.cpp" />
     <ClCompile Include="Interpreter.cpp" />
     <ClCompile Include="expression/LogicalExpression.cpp" />
@@ -146,8 +146,9 @@
     <ClCompile Include="expression/RelExpression.cpp" />
     <ClCompile Include="Scanner.cpp" />
     <ClCompile Include="SourceReader.cpp" />
-    <ClCompile Include="Statement.cpp" />
+    <ClCompile Include="statement/BlockStatement.cpp" />
     <ClCompile Include="Token.cpp" />
+    <ClCompile Include="Variable.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -9,7 +9,9 @@
 #include "expression/RelExpression.h"
 #include "expression/LogicalExpression.h"
 #include "expression/BoolValue.h"
+#include "Variable.h"
 using ScannerPtr = std::unique_ptr<Scanner>;
+using VariablePtr = std::unique_ptr <Variable> ;
 using ArithmExpressionPtr = std::unique_ptr<ArithmExpression>;
 using BoolExpressionPtr = std::unique_ptr<BoolExpression>;
 using TokenType = Token::TokenType;
@@ -36,6 +38,20 @@ public:
 	BoolExpressionPtr parseSubLogExpression();
 	BoolExpressionPtr parseSubRelExpression();
 	BoolExpressionPtr parseBoolValue();
+
+	void parseProcedure();
+	void parseBlockStatement();
+	void parseCondStatement();
+	void parseCycleStatement();
+	void parseGroupStatement();
+	void parseWaitStatement();
+	void parseDevStatement();
+	void parseAtrStatement();
+	//TODO SymbolsTable creation
+	VariablePtr parseVarDeclaration();
+	std::string parseDevAddress();
+	void parseProcedureCall();
+	void parseParameters();
 
 	bool isAcceptableTokenType(const std::initializer_list<TokenType>& accept_types) const;
 	Token requireToken(const std::initializer_list<TokenType>& accept_types);
