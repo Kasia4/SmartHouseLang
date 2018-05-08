@@ -10,6 +10,8 @@
 #include "Variable.h"
 #include "DevStatement.h"
 #include "WaitStatement.h"
+#include "GroupStatement.h"
+#include "statement/BlockStatement.h"
 using ScannerPtr = std::unique_ptr<Scanner>;
 using VariablePtr = std::unique_ptr <Variable>;
 using ParameterPtr = std::unique_ptr <Parameter>;
@@ -42,9 +44,10 @@ public:
 	BoolExpressionPtr parseBoolValue();
 
 	void parseProcedure();
-	void parseBlockStatement();
+	StatementPtr parseBlockStatement();
+	StatementPtr parseStatement();
 	void parseCondStatement();
-	void parseCycleStatement();
+	//void parseCycleStatement();
 	StatementPtr parseGroupStatement();
 	StatementPtr parseWaitStatement();
 	StatementPtr parseDevStatement();

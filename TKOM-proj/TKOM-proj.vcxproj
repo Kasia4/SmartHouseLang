@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AtrStatement.h" />
+    <ClInclude Include="CycleStatement.h" />
     <ClInclude Include="DevStatement.h" />
     <ClInclude Include="expression/ArithmExpression.h" />
     <ClInclude Include="expression/BoolValue.h" />
@@ -140,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AtrStatement.cpp" />
+    <ClCompile Include="CycleStatement.cpp" />
     <ClCompile Include="DevStatement.cpp" />
     <ClCompile Include="expression/BoolValue.cpp" />
     <ClCompile Include="expression/EvalExpression.cpp" />

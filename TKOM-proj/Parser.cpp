@@ -81,6 +81,26 @@ BoolExpressionPtr Parser::parseBoolValue()
 	return std::make_unique<BoolValue>(false);
 }
 
+StatementPtr Parser::parseBlockStatement()
+{
+	requireToken({ TokenType::LCBracket });
+	auto block_statement = std::make_unique<BlockStatement>();
+	while (!isAcceptableTokenType({ TokenType::RCBracket }))
+	{
+		//TODO uncomment after parseStatement() impl
+		//auto statement = parseStatement();
+		//block_statement->add_instructions(std::move(statement));
+	}
+	requireToken({ TokenType::RCBracket });
+	return block_statement;
+}
+
+//TODO implement main logic of basic statements parsing
+//StatementPtr Parser::parseStatement()
+//{
+	
+//}
+
 bool Parser::isAcceptableTokenType(const std::initializer_list<TokenType>& accept_types) const
 {
 	auto currTokenType = scanner->getCurrToken().getType();
@@ -106,7 +126,11 @@ void Parser::consumeToken()
 
 StatementPtr Parser::parseGroupStatement()
 {
-	
+	requireToken({ TokenType::Group });
+	auto gr_name = requireToken({ TokenType::Id }).getValue();
+	requireToken({ TokenType::Of });
+	auto type = requireToken({ TokenType::Id }).getValue();
+	return std::make_unique<GroupStatement>(type, gr_name);
 }
 
 StatementPtr Parser::parseWaitStatement()
