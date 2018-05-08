@@ -3,6 +3,6 @@ class Statement
 {
 public:
 	virtual ~Statement() = default;
-	virtual void execute() = 0;
+	//virtual void execute() = 0;
 };
 

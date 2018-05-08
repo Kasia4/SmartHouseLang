@@ -1,16 +1,17 @@
 #pragma once
-#include <string>
-class Variable
+#include "Parameter.h"
+class Variable :
+	public Parameter
 {
 public:
 	Variable() = default;
-	Variable(std::string type, std::string identifier, std::string bind_addr) :
-		type(type), identifier(identifier), bind_addr(bind_addr) {};
+	Variable(std::string& type, std::string& identifier, std::string& bind_addr) : Parameter(type, identifier)
+	{
+		bind_addr = bind_addr;
+	};
 	~Variable() = default;
 	std::string toString() const;
 private:
-	std::string type;
-	std::string identifier;
 	std::string bind_addr;
 };
 

@@ -115,14 +115,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AtrStatement.h" />
+    <ClInclude Include="DevStatement.h" />
     <ClInclude Include="expression/ArithmExpression.h" />
     <ClInclude Include="expression/BoolValue.h" />
     <ClInclude Include="expression/EvalExpression.h" />
     <ClInclude Include="expression\RelExpression.h" />
     <ClInclude Include="expression/IntConstant.h" />
+    <ClInclude Include="GroupStatement.h" />
     <ClInclude Include="Interpreter.h" />
     <ClInclude Include="expression/BoolExpression.h" />
     <ClInclude Include="expression/LogicalExpression.h" />
+    <ClInclude Include="Parameter.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Procedure.h" />
@@ -132,14 +136,19 @@
     <ClInclude Include="statement/Statement.h" />
     <ClInclude Include="Token.h" />
     <ClInclude Include="Variable.h" />
+    <ClInclude Include="WaitStatement.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AtrStatement.cpp" />
+    <ClCompile Include="DevStatement.cpp" />
     <ClCompile Include="expression/BoolValue.cpp" />
     <ClCompile Include="expression/EvalExpression.cpp" />
     <ClCompile Include="expression/IntConstant.cpp" />
+    <ClCompile Include="GroupStatement.cpp" />
     <ClCompile Include="Interpreter.cpp" />
     <ClCompile Include="expression/LogicalExpression.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Parameter.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Procedure.cpp" />
@@ -149,6 +158,7 @@
     <ClCompile Include="statement/BlockStatement.cpp" />
     <ClCompile Include="Token.cpp" />
     <ClCompile Include="Variable.cpp" />
+    <ClCompile Include="WaitStatement.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

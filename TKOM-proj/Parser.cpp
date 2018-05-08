@@ -104,6 +104,43 @@ void Parser::consumeToken()
 	scanner->getNextToken();
 }
 
+StatementPtr Parser::parseGroupStatement()
+{
+	
+}
+
+StatementPtr Parser::parseWaitStatement()
+{
+	requireToken({ TokenType::Wait });
+	auto duration = parseArithmExpression();
+	return std::make_unique<WaitStatement>(std::move(duration));
+}
+
+StatementPtr Parser::parseDevStatement()
+{
+	std::string dev_name = requireToken({ TokenType::Id }).getValue();
+	std::string atr_name = requireToken({ TokenType::Id }).getValue();
+	auto dev_statement = std::make_unique<DevStatement>(dev_name, atr_name);
+	requireToken({ TokenType::LBracket });
+	while (!isAcceptableTokenType({ TokenType::RBracket }))
+	{
+		auto arg = parseArithmExpression();
+		if (isAcceptableTokenType({ TokenType::Comma }))
+		{
+			requireToken({ TokenType::Comma });
+		}
+		dev_statement->add_arguments(std::move(arg));
+	}
+	return dev_statement;
+}
+
+StatementPtr Parser::parseAtrStatement()
+{
+	std::string dev_name = requireToken({ TokenType::Id }).getValue();
+	std::string atr_name = requireToken({ TokenType::Id }).getValue();
+	return std::make_unique<AtrStatement>(dev_name, atr_name);
+}
+
 VariablePtr Parser::parseVarDeclaration()
 {
 	std::string type = requireToken({ TokenType::Id }).getValue();
@@ -118,4 +155,11 @@ std::string Parser::parseDevAddress()
 	//requireToken({ TokenType::LBracket });
 	//requireToken({ TokenType::Quot });
 	return "test";
+}
+
+ParameterPtr Parser::parseParameter()
+{
+	std::string type = requireToken({ TokenType::Id }).getValue();
+	std::string name = requireToken({ TokenType::Id }).getValue();
+	return std::make_unique<Parameter>(type, name);
 }

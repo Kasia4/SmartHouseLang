@@ -2,18 +2,20 @@
 #include <memory>
 #include <initializer_list>
 #include "Scanner.h"
-#include "expression/ArithmExpression.h"
 #include "expression/EvalExpression.h"
 #include "expression/IntConstant.h"
-#include "expression/BoolExpression.h"
 #include "expression/RelExpression.h"
 #include "expression/LogicalExpression.h"
 #include "expression/BoolValue.h"
 #include "Variable.h"
+#include "DevStatement.h"
+#include "WaitStatement.h"
 using ScannerPtr = std::unique_ptr<Scanner>;
-using VariablePtr = std::unique_ptr <Variable> ;
+using VariablePtr = std::unique_ptr <Variable>;
+using ParameterPtr = std::unique_ptr <Parameter>;
 using ArithmExpressionPtr = std::unique_ptr<ArithmExpression>;
 using BoolExpressionPtr = std::unique_ptr<BoolExpression>;
+using StatementPtr = std::unique_ptr<Statement>;
 using TokenType = Token::TokenType;
 class Parser
 {
@@ -43,15 +45,15 @@ public:
 	void parseBlockStatement();
 	void parseCondStatement();
 	void parseCycleStatement();
-	void parseGroupStatement();
-	void parseWaitStatement();
-	void parseDevStatement();
-	void parseAtrStatement();
+	StatementPtr parseGroupStatement();
+	StatementPtr parseWaitStatement();
+	StatementPtr parseDevStatement();
+	StatementPtr parseAtrStatement();
 	//TODO SymbolsTable creation
 	VariablePtr parseVarDeclaration();
 	std::string parseDevAddress();
 	void parseProcedureCall();
-	void parseParameters();
+	ParameterPtr parseParameter();
 
 	bool isAcceptableTokenType(const std::initializer_list<TokenType>& accept_types) const;
 	Token requireToken(const std::initializer_list<TokenType>& accept_types);
