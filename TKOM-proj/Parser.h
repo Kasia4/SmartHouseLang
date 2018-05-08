@@ -12,12 +12,14 @@
 #include "WaitStatement.h"
 #include "GroupStatement.h"
 #include "statement/BlockStatement.h"
+#include "Procedure.h"
 using ScannerPtr = std::unique_ptr<Scanner>;
 using VariablePtr = std::unique_ptr <Variable>;
 using ParameterPtr = std::unique_ptr <Parameter>;
 using ArithmExpressionPtr = std::unique_ptr<ArithmExpression>;
 using BoolExpressionPtr = std::unique_ptr<BoolExpression>;
 using StatementPtr = std::unique_ptr<Statement>;
+using ProcedurePtr = std::unique_ptr<Procedure>;
 using TokenType = Token::TokenType;
 class Parser
 {
@@ -43,7 +45,7 @@ public:
 	BoolExpressionPtr parseSubRelExpression();
 	BoolExpressionPtr parseBoolValue();
 
-	void parseProcedure();
+	ProcedurePtr parseProcedure();
 	StatementPtr parseBlockStatement();
 	StatementPtr parseStatement();
 	void parseCondStatement();

@@ -81,6 +81,14 @@ BoolExpressionPtr Parser::parseBoolValue()
 	return std::make_unique<BoolValue>(false);
 }
 
+ProcedurePtr Parser::parseProcedure()
+{
+	requireToken({ TokenType::Proc });
+	auto name = requireToken({ TokenType::Id }).getValue();
+	auto block_statement = parseBlockStatement();
+	return std::make_unique<Procedure>(std::move(block_statement));
+}
+
 StatementPtr Parser::parseBlockStatement()
 {
 	requireToken({ TokenType::LCBracket });
