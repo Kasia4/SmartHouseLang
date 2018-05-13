@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AtrStatement.h" />
+    <ClInclude Include="CondStatement.h" />
     <ClInclude Include="CycleStatement.h" />
     <ClInclude Include="DevStatement.h" />
     <ClInclude Include="expression/ArithmExpression.h" />
@@ -131,6 +132,7 @@
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Procedure.h" />
+    <ClInclude Include="ProcedureCall.h" />
     <ClInclude Include="Scanner.h" />
     <ClInclude Include="SourceReader.h" />
     <ClInclude Include="statement/BlockStatement.h" />
@@ -141,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AtrStatement.cpp" />
+    <ClCompile Include="CondStatement.cpp" />
     <ClCompile Include="CycleStatement.cpp" />
     <ClCompile Include="DevStatement.cpp" />
     <ClCompile Include="expression/BoolValue.cpp" />
@@ -155,6 +158,7 @@
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Procedure.cpp" />
     <ClCompile Include="expression/RelExpression.cpp" />
+    <ClCompile Include="ProcedureCall.cpp" />
     <ClCompile Include="Scanner.cpp" />
     <ClCompile Include="SourceReader.cpp" />
     <ClCompile Include="statement/BlockStatement.cpp" />

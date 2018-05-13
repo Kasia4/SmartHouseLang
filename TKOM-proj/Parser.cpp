@@ -104,10 +104,65 @@ StatementPtr Parser::parseBlockStatement()
 }
 
 //TODO implement main logic of basic statements parsing
-//StatementPtr Parser::parseStatement()
-//{
-	
-//}
+StatementPtr Parser::parseStatement()
+{
+	StatementPtr statement;
+	if (isAcceptableTokenType(TokenType::Group))
+	{
+		statement = parseGroupStatement();
+	}
+	//TODO: Add parse CycleStatement
+	//else if (isAcceptableTokenType(TokenType::Cycle))
+	//{
+	//	statement = parseCycleStatement();
+	//}
+	else if (isAcceptableTokenType(TokenType::Wait))
+	{
+		statement = parseWaitStatement();
+	}
+	else if (isAcceptableTokenType(TokenType::Action))
+	{
+		statement = parseProcedureCall();
+	}
+	else if (isAcceptableTokenType(TokenType::Ifs))
+	{
+		statement = parseCondStatement();
+	}
+	else
+		statement = parseDevStatement();
+	return statement;
+}
+
+StatementPtr Parser::parseCondStatement()
+{
+	requireToken({ TokenType::Ifs });
+	auto condition = parseBoolExpression();
+	requireToken({ TokenType::Thens });
+	auto if_instr = parseStatement();
+	StatementPtr else_instr;
+	if (isAcceptableTokenType(TokenType::Elses))
+	{
+		requireToken({ TokenType::Elses });
+		else_instr = parseStatement();
+	}
+	return std::make_unique<CondStatement>(std::move(condition), std::move(if_instr), std::move(else_instr));
+}
+
+StatementPtr Parser::parseCycleStatement()
+{
+	requireToken({ TokenType::Cycle });
+	requireToken({ TokenType::LBracket });
+	auto proc_call = parseProcedureCall();
+	requireToken({ TokenType::Comma });
+	auto time_val = parseArithmExpression();
+	requireToken({ TokenType::RBracket });
+	return std::make_unique<CycleStatement>(std::move(proc_call), std::move(time_val));
+}
+
+bool Parser::isAcceptableTokenType(TokenType accept_type) const
+{
+	return scanner->getCurrToken().getType() == accept_type;
+}
 
 bool Parser::isAcceptableTokenType(const std::initializer_list<TokenType>& accept_types) const
 {
@@ -157,12 +212,15 @@ StatementPtr Parser::parseDevStatement()
 	while (!isAcceptableTokenType({ TokenType::RBracket }))
 	{
 		auto arg = parseArithmExpression();
+		dev_statement->add_arguments(std::move(arg));
 		if (isAcceptableTokenType({ TokenType::Comma }))
 		{
 			requireToken({ TokenType::Comma });
 		}
-		dev_statement->add_arguments(std::move(arg));
+		else
+			break;
 	}
+	requireToken({ TokenType::RBracket });
 	return dev_statement;
 }
 
@@ -187,6 +245,27 @@ std::string Parser::parseDevAddress()
 	//requireToken({ TokenType::LBracket });
 	//requireToken({ TokenType::Quot });
 	return "test";
+}
+
+StatementPtr Parser::parseProcedureCall()
+{
+	requireToken({ TokenType::Action });
+	std::string proc_name = requireToken({ TokenType::Id }).getValue();
+	requireToken({ TokenType::LBracket });
+	auto proc_call = std::make_unique<ProcedureCall>(proc_name);
+	while (!isAcceptableTokenType({ TokenType::RBracket }))
+	{
+		auto arg = parseArithmExpression();
+		proc_call->add_arguments(std::move(arg));
+		if (isAcceptableTokenType({ TokenType::Comma }))
+		{
+			requireToken({ TokenType::Comma });
+		}
+		else
+			break;
+	}
+	requireToken({ TokenType::RBracket });
+	return proc_call;
 }
 
 ParameterPtr Parser::parseParameter()

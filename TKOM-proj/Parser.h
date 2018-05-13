@@ -13,6 +13,9 @@
 #include "GroupStatement.h"
 #include "statement/BlockStatement.h"
 #include "Procedure.h"
+#include "ProcedureCall.h"
+#include "CondStatement.h"
+#include "CycleStatement.h"
 using ScannerPtr = std::unique_ptr<Scanner>;
 using VariablePtr = std::unique_ptr <Variable>;
 using ParameterPtr = std::unique_ptr <Parameter>;
@@ -20,6 +23,7 @@ using ArithmExpressionPtr = std::unique_ptr<ArithmExpression>;
 using BoolExpressionPtr = std::unique_ptr<BoolExpression>;
 using StatementPtr = std::unique_ptr<Statement>;
 using ProcedurePtr = std::unique_ptr<Procedure>;
+using ProcedureCallPtr = std::unique_ptr<ProcedureCall>;
 using TokenType = Token::TokenType;
 class Parser
 {
@@ -48,8 +52,8 @@ public:
 	ProcedurePtr parseProcedure();
 	StatementPtr parseBlockStatement();
 	StatementPtr parseStatement();
-	void parseCondStatement();
-	//void parseCycleStatement();
+	StatementPtr parseCondStatement();
+	StatementPtr parseCycleStatement();
 	StatementPtr parseGroupStatement();
 	StatementPtr parseWaitStatement();
 	StatementPtr parseDevStatement();
@@ -57,10 +61,11 @@ public:
 	//TODO SymbolsTable creation
 	VariablePtr parseVarDeclaration();
 	std::string parseDevAddress();
-	void parseProcedureCall();
+	StatementPtr parseProcedureCall();
 	ParameterPtr parseParameter();
 
 	bool isAcceptableTokenType(const std::initializer_list<TokenType>& accept_types) const;
+	bool isAcceptableTokenType(TokenType accept_type) const;
 	Token requireToken(const std::initializer_list<TokenType>& accept_types);
 	void consumeToken();
 private:
