@@ -13,6 +13,7 @@ public:
 	~DevStatement() = default;
 
 	void add_arguments(ArithmExpressionPtr val);
+	std::string toString() const override;
 private:
 	std::list<ArithmExpressionPtr> arguments;
 };

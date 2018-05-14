@@ -9,13 +9,13 @@
 #include "expression/BoolValue.h"
 #include "Variable.h"
 #include "DevStatement.h"
-#include "WaitStatement.h"
 #include "GroupStatement.h"
 #include "statement/BlockStatement.h"
 #include "Procedure.h"
 #include "ProcedureCall.h"
 #include "CondStatement.h"
 #include "CycleStatement.h"
+#include "WaitStatement.h"
 using ScannerPtr = std::unique_ptr<Scanner>;
 using VariablePtr = std::unique_ptr <Variable>;
 using ParameterPtr = std::unique_ptr <Parameter>;

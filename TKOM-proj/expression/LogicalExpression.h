@@ -17,6 +17,7 @@ public:
 	~LogicalExpression() = default;
 
 	bool calculate() const override;
+	std::string toString() const override;
 private:
 	bool calculate(bool leftValue, bool rightValue) const;
 	BoolExpressionPtr l_operand;

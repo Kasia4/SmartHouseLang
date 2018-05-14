@@ -9,6 +9,7 @@ public:
 	~BoolValue() = default;
 
 	bool calculate() const override;
+	std::string toString() const override;
 private:
 	bool value;
 };

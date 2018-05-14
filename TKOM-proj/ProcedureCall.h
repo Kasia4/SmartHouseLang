@@ -14,6 +14,7 @@ public:
 	~ProcedureCall() = default;
 
 	void add_arguments(ArithmExpressionPtr val);
+	std::string toString() const override;
 private:
 	std::string proc_name;
 	std::list<ArithmExpressionPtr> arguments;

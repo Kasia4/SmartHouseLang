@@ -18,6 +18,7 @@ public:
 	{};
 	~EvalExpression() = default;
 	int calculate() const override;
+	std::string toString() const override;
 private:
 	ArithmExpressionPtr l_operand;
 	ArithmExpressionPtr r_operand;

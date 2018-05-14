@@ -11,6 +11,7 @@ public:
 
 	int calculate() const override;
 	int toInt(std::string value);
+	std::string toString() const override;
 private:
 	int value;
 };

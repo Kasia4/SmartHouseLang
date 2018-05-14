@@ -10,7 +10,6 @@ public:
 		bind_addr = bind_addr;
 	};
 	~Variable() = default;
-	std::string toString() const;
 private:
 	std::string bind_addr;
 };

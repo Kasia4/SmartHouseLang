@@ -17,6 +17,7 @@ public:
 	{};
 	~RelExpression() = default;
 	bool calculate() const override;
+	std::string toString() const override;
 private:
 	bool calculate(int leftValue, int rightValue) const;
 	ArithmExpressionPtr l_operand;

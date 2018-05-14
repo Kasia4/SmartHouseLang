@@ -1,11 +1,20 @@
 #include "EvalExpression.h"
 #include <unordered_map>
 #include <functional>
+#include <sstream>
 int EvalExpression::calculate() const
 {
 	auto leftValue = l_operand->calculate();
 	auto rightValue = r_operand->calculate();
 	return calculate(leftValue, rightValue);
+}
+
+std::string EvalExpression::toString() const
+{
+	//TODO: operator toString()
+	std::stringstream output;
+	output << l_operand->toString() /*<< ex_operator*/ << r_operand->toString();
+	return output.str();
 }
 
 int EvalExpression::calculate(int leftValue, int rightValue) const
