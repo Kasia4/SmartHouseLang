@@ -5,32 +5,25 @@
 #include "../TKOM-proj/Position.cpp"
 
 void SourceReaderTest::SetUp() {
-	test_input.open("unit_tests.txt", std::ios::in | std::ios::out | std::ios::trunc);
 	sourceReader = std::make_unique<SourceReader>(test_input);
 }
-void SourceReaderTest::TearDown() {
-	test_input.close();
-}
-void SourceReaderTest::writeFile(std::string content)
+
+void SourceReaderTest::setInput(const std::string & content)
 {
-	test_input << content;
-	if (test_input.fail())
-	{
-		test_input.clear();
-	}
-	test_input.seekg(0, std::ios::beg);
+	test_input.clear();
+	test_input.str(content);
 }
 
 TEST_F(SourceReaderTest, testGetNextCharOnce)
 {
-	writeFile("test");
+	setInput("test");
 	auto getC = sourceReader->getNextChar();
 	EXPECT_EQ(getC, 't');
 }
 
 TEST_F(SourceReaderTest, testGetNextCharMult)
 {
-	writeFile("test");
+	setInput("test");
 	for (int i = 0; i < 2; ++i)
 	{
 		sourceReader->getNextChar();
@@ -41,7 +34,7 @@ TEST_F(SourceReaderTest, testGetNextCharMult)
 
 TEST_F(SourceReaderTest, testPosAfterGetOnce)
 {
-	writeFile("test");
+	setInput("test");
 	sourceReader->getNextChar();
 	auto charNum = sourceReader->getCharNum();
 	EXPECT_EQ(charNum, 1);
@@ -49,7 +42,7 @@ TEST_F(SourceReaderTest, testPosAfterGetOnce)
 
 TEST_F(SourceReaderTest, testPosAfterGetMult)
 {
-	writeFile("testtest");
+	setInput("testtest");
 	for (int i = 0; i < 5; ++i)
 	{
 		sourceReader->getNextChar();
@@ -60,7 +53,7 @@ TEST_F(SourceReaderTest, testPosAfterGetMult)
 
 TEST_F(SourceReaderTest, testPeek)
 {
-	writeFile("test");
+	setInput("test");
 	sourceReader->peek();
 	auto getC = sourceReader->peek();
 	EXPECT_EQ(getC, 't');
@@ -68,7 +61,7 @@ TEST_F(SourceReaderTest, testPeek)
 
 TEST_F(SourceReaderTest, testPosAfterPeekOnce)
 {
-	writeFile("test");
+	setInput("test");
 	sourceReader->peek();
 	auto charNum = sourceReader->getCharNum();
 	EXPECT_EQ(charNum, 0);
@@ -76,7 +69,7 @@ TEST_F(SourceReaderTest, testPosAfterPeekOnce)
 
 TEST_F(SourceReaderTest, testPosAfterPeekMult)
 {
-	writeFile("test");
+	setInput("test");
 	for (int i = 0; i < 5; ++i)
 	{
 		sourceReader->peek();
@@ -87,7 +80,7 @@ TEST_F(SourceReaderTest, testPosAfterPeekMult)
 
 TEST_F(SourceReaderTest, testIgnoreWhiteSpaces)
 {
-	writeFile(" test best");
+	setInput(" test best");
 	sourceReader->ignoreWhiteSpaces();
 	auto getC = sourceReader->peek();
 	EXPECT_EQ(getC, 't');
@@ -95,7 +88,7 @@ TEST_F(SourceReaderTest, testIgnoreWhiteSpaces)
 
 TEST_F(SourceReaderTest, testPosAfterIgnoreWhiteSpaces)
 {
-	writeFile(" test best");
+	setInput(" test best");
 	sourceReader->ignoreWhiteSpaces();
 	sourceReader->getNextChar();
 	auto charNum = sourceReader->getCharNum();
@@ -104,7 +97,7 @@ TEST_F(SourceReaderTest, testPosAfterIgnoreWhiteSpaces)
 
 TEST_F(SourceReaderTest, testEof)
 {
-	writeFile("\n");
+	setInput("\n");
 	sourceReader->getNextChar();
 	sourceReader->getNextChar();
 	EXPECT_TRUE(sourceReader->isEof());

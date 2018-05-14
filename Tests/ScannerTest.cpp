@@ -5,47 +5,39 @@
 #include "../TKOM-proj/Token.cpp"
 
 void ScannerTest::SetUp() {
-	test_input.open("unit_tests.txt", std::ios::in | std::ios::out | std::ios::trunc);
 	test_scanner = std::make_unique<Scanner>(test_input);
 }
-void ScannerTest::TearDown() {
-	test_input.close();
-}
 
-void ScannerTest::writeFile(std::string content)
+void ScannerTest::setInput(const std::string & content)
 {
-	test_input << content;
-	if (test_input.fail())
-	{
-		test_input.clear();
-	}
-	test_input.seekg(0, std::ios::beg);
+	test_input.clear();
+	test_input.str(content);
 }
 
 TEST_F(ScannerTest, testGetKeywordType)
 {
-	writeFile("PROCEDURE fajna");
+	setInput("PROCEDURE fajna");
 	auto token = test_scanner->getNextToken();
 	EXPECT_EQ(token.getType(), Token::TokenType::Proc);
 }
 
 TEST_F(ScannerTest, testGetKeywordValue)
 {
-	writeFile("PROCEDURE fajna");
+	setInput("PROCEDURE fajna");
 	auto token = test_scanner->getNextToken();
 	EXPECT_EQ(token.toString(), "PROCEDURE");
 }
 
 TEST_F(ScannerTest, testGetIdType)
 {
-	writeFile("PROCEDURE fajna");
+	setInput("PROCEDURE fajna");
 	test_scanner->getNextToken();
 	auto token = test_scanner->getNextToken();
 	EXPECT_EQ(token.getType(), Token::TokenType::Id);
 }
 TEST_F(ScannerTest, testGetIdValue)
 {
-	writeFile("PROCEDURE fajna");
+	setInput("PROCEDURE fajna");
 	test_scanner->getNextToken();
 	auto token = test_scanner->getNextToken();
 	EXPECT_EQ(token.toString(), "fajna");
@@ -53,7 +45,7 @@ TEST_F(ScannerTest, testGetIdValue)
 
 TEST_F(ScannerTest, testGetIntType)
 {
-	writeFile("piec.ustawTemp(150)");
+	setInput("piec.ustawTemp(150)");
 	for(int i=0; i < 4; ++i)
 		test_scanner->getNextToken();
 	auto token = test_scanner->getNextToken();
@@ -62,7 +54,7 @@ TEST_F(ScannerTest, testGetIntType)
 
 TEST_F(ScannerTest, testGetIntValue)
 {
-	writeFile("piec.ustawTemp(150)");
+	setInput("piec.ustawTemp(150)");
 	for (int i = 0; i < 4; ++i)
 		test_scanner->getNextToken();
 	auto token = test_scanner->getNextToken();
@@ -71,7 +63,7 @@ TEST_F(ScannerTest, testGetIntValue)
 
 TEST_F(ScannerTest, testGetOperatorType)
 {
-	writeFile("piec.ustawTemp(150)");
+	setInput("piec.ustawTemp(150)");
 	for (int i = 0; i < 3; ++i)
 		test_scanner->getNextToken();
 	auto token = test_scanner->getNextToken();
@@ -80,7 +72,7 @@ TEST_F(ScannerTest, testGetOperatorType)
 
 TEST_F(ScannerTest, testGetOperatorValue)
 {
-	writeFile("piec.ustawTemp(150)");
+	setInput("piec.ustawTemp(150)");
 	for (int i = 0; i < 3; ++i)
 		test_scanner->getNextToken();
 	auto token = test_scanner->getNextToken();
