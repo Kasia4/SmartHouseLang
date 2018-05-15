@@ -18,5 +18,5 @@ int IntConstant::toInt(std::string value_str)
 
 std::string IntConstant::toString() const
 {
-	return "heh" + value;
+	return value_str;
 }

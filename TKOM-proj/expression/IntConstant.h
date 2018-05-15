@@ -6,13 +6,14 @@ class IntConstant :
 {
 public:
 	IntConstant() = default;
-	IntConstant(std::string value_str) { value = toInt(value_str); };
+	IntConstant(std::string value_str): value_str(value_str) { value = toInt(value_str); };
 	~IntConstant() = default;
 
 	int calculate() const override;
 	int toInt(std::string value);
 	std::string toString() const override;
 private:
+	std::string value_str;
 	int value;
 };
 

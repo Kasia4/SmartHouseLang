@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include <iostream>
 #include <initializer_list>
 #include "Scanner.h"
 #include "expression/EvalExpression.h"
@@ -31,13 +32,9 @@ public:
 	Parser() = delete;
 	Parser(ScannerPtr scanner) : scanner(std::move(scanner))
 	{
-		add_operators = { TokenType::AddOp, TokenType::SubOp };
-		mult_operators = { TokenType::MultOp, TokenType::DivOp };
-		log_operators = { TokenType::ConjOp, TokenType::DisjOp };
-		rel_operators = { TokenType::Greater, TokenType::GreaterOrEq,
-						  TokenType::Less, TokenType::LessOrEq,
-						  TokenType::Equal, TokenType::NotEqual };
+		init();
 	};
+	void init();
 	~Parser() = default;
 	//TODO (after whole expr impl) consider templates or traits
 	ArithmExpressionPtr parseArithmExpression();
@@ -64,9 +61,10 @@ public:
 	StatementPtr parseProcedureCall();
 	ParameterPtr parseParameter();
 
-	bool isAcceptableTokenType(const std::initializer_list<TokenType>& accept_types) const;
+	bool isAcceptableTokenType(const std::list<TokenType>& accept_types) const;
 	bool isAcceptableTokenType(TokenType accept_type) const;
-	Token requireToken(const std::initializer_list<TokenType>& accept_types);
+	Token requireToken(const std::list<TokenType>& accept_types);
+	Token requireToken(const TokenType& accept_type);
 	void consumeToken();
 private:
 	ArithmExpressionPtr parseArithmExpression(ArithmExpressionPtr leftEval);
@@ -76,10 +74,11 @@ private:
 	BoolExpressionPtr parseBoolExpression(BoolExpressionPtr leftEval);
 
 	ScannerPtr scanner;
-	std::initializer_list<TokenType> add_operators;
-	std::initializer_list<TokenType> mult_operators;
-	std::initializer_list<TokenType> log_operators;
-	std::initializer_list<TokenType> rel_operators;
+	std::list<TokenType> add_operators;
+	std::list<TokenType> mult_operators;
+	std::list<TokenType> log_operators;
+	std::list<TokenType> rel_operators;
+	std::list<TokenType> bool_values;
 		
 };
 
