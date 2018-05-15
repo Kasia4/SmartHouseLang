@@ -2,5 +2,5 @@
 
 std::string Parameter::toString() const
 {
-	return type + identifier;
+	return type + " " + identifier;
 }

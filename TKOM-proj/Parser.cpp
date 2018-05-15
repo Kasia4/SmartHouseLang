@@ -1,7 +1,7 @@
 #include "Parser.h"
 #include <algorithm>
 #include <iostream>
-
+#include <sstream>
 void Parser::init()
 {
 	add_operators = { TokenType::AddOp, TokenType::SubOp };
@@ -108,8 +108,8 @@ StatementPtr Parser::parseBlockStatement()
 	while (!isAcceptableTokenType(TokenType::RCBracket))
 	{
 		//TODO uncomment after parseStatement() impl
-		//auto statement = parseStatement();
-		//block_statement->add_instructions(std::move(statement));
+		auto statement = parseStatement();
+		block_statement->add_instructions(std::move(statement));
 	}
 	requireToken(TokenType::RCBracket);
 	return block_statement;
@@ -124,10 +124,10 @@ StatementPtr Parser::parseStatement()
 		statement = parseGroupStatement();
 	}
 	//TODO: Add parse CycleStatement
-	//else if (isAcceptableTokenType(TokenType::Cycle))
-	//{
-	//	statement = parseCycleStatement();
-	//}
+	else if (isAcceptableTokenType(TokenType::Cycle))
+	{
+		statement = parseCycleStatement();
+	}
 	else if (isAcceptableTokenType(TokenType::Wait))
 	{
 		statement = parseWaitStatement();
@@ -179,14 +179,8 @@ bool Parser::isAcceptableTokenType(TokenType accept_type) const
 bool Parser::isAcceptableTokenType(const std::list<TokenType>& accept_types) const
 {
 	auto currTokenType = scanner->getCurrToken().getType();
-	/*return std::any_of(accept_types.begin(), accept_types.end(), 
-					   [&currTokenType](const TokenType& type) {return currTokenType == type; });*/
-	for (auto& type : accept_types)
-	{
-		if (currTokenType == type)
-			return true;
-	}
-	return false;
+	return std::any_of(accept_types.begin(), accept_types.end(), 
+					   [&currTokenType](const TokenType& type) {return currTokenType == type; });
 }
 
 Token Parser::requireToken(const std::list<TokenType>& accept_types)
@@ -271,9 +265,19 @@ VariablePtr Parser::parseVarDeclaration()
 std::string Parser::parseDevAddress()
 {
 	//TODO add ip parsing
-	//requireToken({ TokenType::LBracket });
-	//requireToken({ TokenType::Quot });
-	return "test";
+	std::stringstream ip;
+	requireToken(TokenType::LBracket);
+	requireToken(TokenType::Quot);
+	for (int i = 0; i < 3; ++i)
+	{
+		ip << requireToken(TokenType::IntVal).getValue();
+		requireToken(TokenType::Dot);
+		ip << ".";
+	}
+	ip << requireToken(TokenType::IntVal).getValue();
+	requireToken(TokenType::Quot);
+	requireToken(TokenType::RBracket);
+	return ip.str();
 }
 
 StatementPtr Parser::parseProcedureCall()

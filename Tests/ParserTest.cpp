@@ -15,6 +15,7 @@
 #include "../TKOM-proj/GroupStatement.cpp"
 #include "../TKOM-proj/AtrStatement.cpp"
 #include "../TKOM-proj/ProcedureCall.cpp"
+#include "../TKOM-proj/Parameter.cpp"
 
 void ParserTest::SetUp() {
 	std::unique_ptr<Scanner> scanner = std::make_unique<Scanner>(test_input);
@@ -64,6 +65,22 @@ TEST_F(ParserTest, testParseSubMultExpression)
 	parser->consumeToken();
 	auto calc = parser->parseSubMultExpression()->calculate();
 	EXPECT_EQ(calc, 2);
+}
+
+TEST_F(ParserTest, testParseBoolTrue)
+{
+	setInput("T");
+	parser->consumeToken();
+	auto parsed = parser->parseBoolExpression()->calculate();
+	EXPECT_TRUE(parsed);
+}
+
+TEST_F(ParserTest, testParseBoolFalse)
+{
+	setInput("F");
+	parser->consumeToken();
+	auto parsed = parser->parseBoolExpression()->calculate();
+	EXPECT_FALSE(parsed);
 }
 
 TEST_F(ParserTest, testParseBoolExpressionAlter)
@@ -144,4 +161,28 @@ TEST_F(ParserTest, testParseBoolExpressionCompAnd)
 	parser->consumeToken();
 	auto parsed = parser->parseBoolExpression()->calculate();
 	EXPECT_TRUE(parsed);
+}
+
+TEST_F(ParserTest, testParseParameter)
+{
+	setInput("Pralka pralka");
+	parser->consumeToken();
+	auto parsed = parser->parseParameter()->toString();
+	EXPECT_EQ(parsed, "Pralka pralka");
+}
+
+TEST_F(ParserTest, testParseVarDeclaration)
+{
+	setInput("Pralka pralka\(\"1.1.1.1\"\)");
+	parser->consumeToken();
+	auto parsed = parser->parseVarDeclaration()->toString();
+	EXPECT_EQ(parsed, "Pralka pralka");
+}
+
+TEST_F(ParserTest, testParseDevAddress)
+{
+	setInput("\(\"1.1.1.1\"\)");
+	parser->consumeToken();
+	auto parsed = parser->parseDevAddress();
+	EXPECT_EQ(parsed, "1.1.1.1");
 }

@@ -5,7 +5,7 @@ class Parameter
 public:
 	Parameter() = default;
 	Parameter(std::string& type, std::string& identifier) :
-		type(type), identifier(type) {};
+		type(type), identifier(identifier) {};
 	~Parameter() = default;
 	std::string toString() const;
 protected:
