@@ -2,5 +2,5 @@
 
 std::string WaitStatement::toString() const
 {
-	return duration->toString();
+	return "WAIT " + duration->toString();
 }

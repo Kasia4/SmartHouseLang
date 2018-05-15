@@ -186,3 +186,43 @@ TEST_F(ParserTest, testParseDevAddress)
 	auto parsed = parser->parseDevAddress();
 	EXPECT_EQ(parsed, "1.1.1.1");
 }
+
+//TEST_F(ParserTest, testParseProcedureCall)
+//{
+//	setInput("DO przykladowa\(piecB, zarowkaB\)");
+//	parser->consumeToken();
+//	auto parsed = parser->parseProcedureCall()->toString();
+//	EXPECT_EQ(parsed, "DO przykladowa\(piecB, zarowkaB\)");
+//}
+
+TEST_F(ParserTest, testParseGroupStatement)
+{
+	setInput("GROUP pralki OF Pralka");
+	parser->consumeToken();
+	auto parsed = parser->parseGroupStatement()->toString();
+	EXPECT_EQ(parsed, "GROUP pralki OF Pralka");
+}
+
+TEST_F(ParserTest, testParseWaitStatement)
+{
+	setInput("WAIT 5");
+	parser->consumeToken();
+	auto parsed = parser->parseWaitStatement()->toString();
+	EXPECT_EQ(parsed, "WAIT 5");
+}
+
+TEST_F(ParserTest, testParseCondStatement)
+{
+	setInput("IF T THEN WAIT 5 ELSE WAIT 10");
+	parser->consumeToken();
+	auto parsed = parser->parseCondStatement()->toString();
+	EXPECT_EQ(parsed, "IF true THEN WAIT 5 ELSE WAIT 10");
+}
+
+TEST_F(ParserTest, testParseAtrStatement)
+{
+	setInput("pralka.temperatura");
+	parser->consumeToken();
+	auto parsed = parser->parseAtrStatement()->toString();
+	EXPECT_EQ(parsed, "ATR pralka temperatura");
+}

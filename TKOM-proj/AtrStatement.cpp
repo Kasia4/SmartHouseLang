@@ -2,5 +2,5 @@
 
 std::string AtrStatement::toString() const
 {
-	return dev_name + atr_name;
+	return "ATR " + dev_name + " " + atr_name;
 }
