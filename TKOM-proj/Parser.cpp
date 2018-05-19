@@ -326,3 +326,21 @@ ParameterPtr Parser::parseParameter()
 	std::string name = requireToken(TokenType::Id).getValue();
 	return std::make_unique<Parameter>(type, name);
 }
+
+ScriptBodyPtr Parser::parseScriptBody()
+{
+	auto script_body = std::make_unique<ScriptBody>();
+	while (isAcceptableTokenType(TokenType::Id))
+	{
+		script_body->add_variable(parseVarDeclaration());
+	}
+	while (isAcceptableTokenType(TokenType::Proc))
+	{
+		script_body->add_procedure(parseProcedure());
+	}
+	while (!isAcceptableTokenType(TokenType::Eof))
+	{
+		script_body->add_statement(parseStatement());
+	}
+	return script_body;
+}

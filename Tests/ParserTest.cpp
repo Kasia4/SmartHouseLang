@@ -17,6 +17,7 @@
 #include "../TKOM-proj/ProcedureCall.cpp"
 #include "../TKOM-proj/Procedure.cpp"
 #include "../TKOM-proj/Parameter.cpp"
+#include "../TKOM-proj/ScriptBody.cpp"
 
 void ParserTest::SetUp() {
 	std::unique_ptr<Scanner> scanner = std::make_unique<Scanner>(test_input);
@@ -254,9 +255,16 @@ TEST_F(ParserTest, testParseBlockStatement)
 
 TEST_F(ParserTest, testParseProcedure)
 {
-	setInput("PROCEDURE przykladowa{piec.grzej(15) pralka.wlacz()}");
+	setInput("PROCEDURE przykladowa\n{piec.grzej(15) pralka.wlacz()}");
 	parser->consumeToken();
 	auto parsed = parser->parseProcedure()->toString();
 	EXPECT_EQ(parsed, "PROCEDURE przykladowa{piec.grzej(15) pralka.wlacz() }");
 }
 
+TEST_F(ParserTest, testParseScriptBody)
+{
+	setInput("Pralka pralka\(\"1.1.1.1\"\) \n PROCEDURE przykladowa\n{piec.grzej(15) pralka.wlacz()} \n WAIT 5");
+	parser->consumeToken();
+	auto parsed = parser->parseScriptBody()->toString();
+	EXPECT_EQ(parsed, "Vars: Pralka pralka\nProcedures: PROCEDURE przykladowa{piec.grzej(15) pralka.wlacz() }\nInstructions: WAIT 5");
+}

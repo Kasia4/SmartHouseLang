@@ -135,6 +135,7 @@
     <ClInclude Include="Procedure.h" />
     <ClInclude Include="ProcedureCall.h" />
     <ClInclude Include="Scanner.h" />
+    <ClInclude Include="ScriptBody.h" />
     <ClInclude Include="SourceReader.h" />
     <ClInclude Include="statement/BlockStatement.h" />
     <ClInclude Include="statement/Statement.h" />
@@ -162,6 +163,7 @@
     <ClCompile Include="expression/RelExpression.cpp" />
     <ClCompile Include="ProcedureCall.cpp" />
     <ClCompile Include="Scanner.cpp" />
+    <ClCompile Include="ScriptBody.cpp" />
     <ClCompile Include="SourceReader.cpp" />
     <ClCompile Include="statement/BlockStatement.cpp" />
     <ClCompile Include="Token.cpp" />

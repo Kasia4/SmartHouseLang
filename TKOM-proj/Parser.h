@@ -17,6 +17,7 @@
 #include "CondStatement.h"
 #include "CycleStatement.h"
 #include "WaitStatement.h"
+#include "ScriptBody.h"
 using ScannerPtr = std::unique_ptr<Scanner>;
 using VariablePtr = std::unique_ptr <Variable>;
 using ParameterPtr = std::unique_ptr <Parameter>;
@@ -25,6 +26,7 @@ using BoolExpressionPtr = std::unique_ptr<BoolExpression>;
 using StatementPtr = std::unique_ptr<Statement>;
 using ProcedurePtr = std::unique_ptr<Procedure>;
 using ProcedureCallPtr = std::unique_ptr<ProcedureCall>;
+using ScriptBodyPtr = std::unique_ptr<ScriptBody>;
 using TokenType = Token::TokenType;
 class Parser
 {
@@ -60,6 +62,8 @@ public:
 	std::string parseDevAddress();
 	StatementPtr parseProcedureCall();
 	ParameterPtr parseParameter();
+
+	ScriptBodyPtr parseScriptBody();
 
 	bool isAcceptableTokenType(const std::list<TokenType>& accept_types) const;
 	bool isAcceptableTokenType(TokenType accept_type) const;

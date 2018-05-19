@@ -1,3 +1,7 @@
+Debug/
+TKOM-proj/Debug/
+Tests/Debug/
+packages/
 *.opendb
 *.db
 *.log
@@ -7,6 +11,3 @@
 *.idb
 *.pdb
 .vs/
-Debug/
-TKOM-proj/Debug/
-Tests/Debug/
