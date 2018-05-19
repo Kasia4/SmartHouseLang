@@ -263,8 +263,8 @@ TEST_F(ParserTest, testParseProcedure)
 
 TEST_F(ParserTest, testParseScriptBody)
 {
-	setInput("Pralka pralka\(\"1.1.1.1\"\) \n PROCEDURE przykladowa\n{piec.grzej(15) pralka.wlacz()} \n WAIT 5");
+	setInput("Pralka pralka\(\"1.1.1.1\"\) \n PROCEDURE przykladowa\n{piec.grzej(15) pralka.wlacz()} \n WAIT 5 \n piec.grzej(15)");
 	parser->consumeToken();
 	auto parsed = parser->parseScriptBody()->toString();
-	EXPECT_EQ(parsed, "Vars: Pralka pralka\nProcedures: PROCEDURE przykladowa{piec.grzej(15) pralka.wlacz() }\nInstructions: WAIT 5");
+	EXPECT_EQ(parsed, "Vars: Pralka pralka\nProcedures: PROCEDURE przykladowa{piec.grzej(15) pralka.wlacz() }\nInstructions: WAIT 5piec.grzej(15)");
 }

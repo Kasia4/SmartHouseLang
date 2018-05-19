@@ -139,6 +139,7 @@
     <ClInclude Include="SourceReader.h" />
     <ClInclude Include="statement/BlockStatement.h" />
     <ClInclude Include="statement/Statement.h" />
+    <ClInclude Include="SymbolTable.h" />
     <ClInclude Include="Token.h" />
     <ClInclude Include="statement/Variable.h" />
     <ClInclude Include="statement/WaitStatement.h" />
@@ -166,6 +167,7 @@
     <ClCompile Include="statement/ScriptBody.cpp" />
     <ClCompile Include="SourceReader.cpp" />
     <ClCompile Include="statement/BlockStatement.cpp" />
+    <ClCompile Include="SymbolTable.cpp" />
     <ClCompile Include="Token.cpp" />
     <ClCompile Include="statement/Variable.cpp" />
     <ClCompile Include="statement/WaitStatement.cpp" />
