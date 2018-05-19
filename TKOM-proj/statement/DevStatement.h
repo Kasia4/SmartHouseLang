@@ -2,7 +2,7 @@
 #include <list>
 #include <memory>
 #include "AtrStatement.h"
-#include "expression/ArithmExpression.h"
+#include "../expression/ArithmExpression.h"
 using ArithmExpressionPtr = std::unique_ptr<ArithmExpression>;
 class DevStatement :
 	public AtrStatement

@@ -1,6 +1,6 @@
 #pragma once
 #include "Procedure.h"
-#include "statement/Statement.h"
+#include "Statement.h"
 #include "Variable.h"
 #include <memory>
 #include <list>

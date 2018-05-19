@@ -2,8 +2,8 @@
 #include <string>
 #include <list>
 #include <memory>
-#include "expression\ArithmExpression.h"
-#include "c:\Users\katar\source\repos\SmartHouseLang\TKOM-proj\statement\Statement.h"
+#include "..\expression\ArithmExpression.h"
+#include "Statement.h"
 using ArithmExpressionPtr = std::unique_ptr<ArithmExpression>;
 class ProcedureCall :
 	public Statement

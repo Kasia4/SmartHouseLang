@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
-#include "c:\Users\katar\source\repos\SmartHouseLang\TKOM-proj\statement\Statement.h"
-#include "expression\BoolExpression.h"
+#include "Statement.h"
+#include "..\expression\BoolExpression.h"
 using BoolExpressionPtr = std::unique_ptr<BoolExpression>;
 using StatementPtr = std::unique_ptr<Statement>;
 class CondStatement :

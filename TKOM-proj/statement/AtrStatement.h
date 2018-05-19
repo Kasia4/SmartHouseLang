@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "c:\Users\katar\source\repos\SmartHouseLang\TKOM-proj\statement\Statement.h"
+#include "Statement.h"
 class AtrStatement :
 	public Statement
 {

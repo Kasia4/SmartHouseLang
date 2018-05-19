@@ -36,7 +36,7 @@
     <ClInclude Include="statement/Statement.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="Procedure.h">
+    <ClInclude Include="statement/Procedure.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="Position.h">
@@ -63,37 +63,37 @@
     <ClInclude Include="expression\RelExpression.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="Variable.h">
+    <ClInclude Include="statement/Variable.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="AtrStatement.h">
+    <ClInclude Include="statement/AtrStatement.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="DevStatement.h">
+    <ClInclude Include="statement/DevStatement.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="Parameter.h">
+    <ClInclude Include="statement/Parameter.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="WaitStatement.h">
+    <ClInclude Include="statement/WaitStatement.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="GroupStatement.h">
+    <ClInclude Include="statement/GroupStatement.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="CycleStatement.h">
+    <ClInclude Include="statement/CycleStatement.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="ProcedureCall.h">
+    <ClInclude Include="statement/ProcedureCall.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="CondStatement.h">
+    <ClInclude Include="statement/CondStatement.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="GroupActionStatement.h">
+    <ClInclude Include="statement/GroupActionStatement.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="ScriptBody.h">
+    <ClInclude Include="statement/ScriptBody.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
@@ -116,7 +116,7 @@
     <ClCompile Include="SourceReader.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="Procedure.cpp">
+    <ClCompile Include="statement/Procedure.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
     <ClCompile Include="Position.cpp">
@@ -140,37 +140,37 @@
     <ClCompile Include="statement/BlockStatement.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="Variable.cpp">
+    <ClCompile Include="statement/Variable.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="AtrStatement.cpp">
+    <ClCompile Include="statement/AtrStatement.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="DevStatement.cpp">
+    <ClCompile Include="statement/DevStatement.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="Parameter.cpp">
+    <ClCompile Include="statement/Parameter.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="WaitStatement.cpp">
+    <ClCompile Include="statement/WaitStatement.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="GroupStatement.cpp">
+    <ClCompile Include="statement/GroupStatement.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="CycleStatement.cpp">
+    <ClCompile Include="statement/CycleStatement.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="ProcedureCall.cpp">
+    <ClCompile Include="statement/ProcedureCall.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="CondStatement.cpp">
+    <ClCompile Include="statement/CondStatement.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="GroupActionStatement.cpp">
+    <ClCompile Include="statement/GroupActionStatement.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="ScriptBody.cpp">
+    <ClCompile Include="statement/ScriptBody.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
