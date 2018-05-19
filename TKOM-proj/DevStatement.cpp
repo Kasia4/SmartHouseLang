@@ -9,6 +9,8 @@ void DevStatement::add_arguments(ArithmExpressionPtr val)
 std::string DevStatement::toString() const
 {
 	std::stringstream output;
+	output << dev_name << "." << atr_name << "\(";
 	std::for_each(arguments.begin(), arguments.end(), [&output](const auto& stat) { output << stat->toString(); });
+	output << "\)";
 	return output.str();
 }

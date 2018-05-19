@@ -9,8 +9,8 @@ void ProcedureCall::add_arguments(ArithmExpressionPtr val)
 std::string ProcedureCall::toString() const
 {
 	std::stringstream output;
-	output << "DO " << proc_name << "\(";
-	std::for_each(arguments.begin(), arguments.end(), [&output](const auto& stat) { output << stat->toString(); });
-	output << "\)";
+	output << "DO " << proc_name << "(";
+	std::for_each(arguments.begin(), arguments.end(), [&output](const auto& stat) { output << stat->toString() << " "; });
+	output << ")";
 	return output.str();
 }

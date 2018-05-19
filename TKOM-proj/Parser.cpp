@@ -97,8 +97,23 @@ ProcedurePtr Parser::parseProcedure()
 {
 	requireToken(TokenType::Proc);
 	auto name = requireToken(TokenType::Id).getValue();
+	// TODO: consider existing of arguments
+	//requireToken(TokenType::LBracket);
+	//while (!isAcceptableTokenType(TokenType::RBracket))
+	//{
+	//	//TODO: parse different types of arguments id -> lambda or attribute else arithm
+	//	auto arg = parseArithmExpression();
+	//	dev_statement->add_arguments(std::move(arg));
+	//	if (isAcceptableTokenType(TokenType::Comma))
+	//	{
+	//		requireToken(TokenType::Comma);
+	//	}
+	//	else
+	//		break;
+	//}
+	//requireToken(TokenType::RBracket);
 	auto block_statement = parseBlockStatement();
-	return std::make_unique<Procedure>(std::move(block_statement));
+	return std::make_unique<Procedure>(name, std::move(block_statement));
 }
 
 StatementPtr Parser::parseBlockStatement()
@@ -229,6 +244,7 @@ StatementPtr Parser::parseWaitStatement()
 StatementPtr Parser::parseDevStatement()
 {
 	std::string dev_name = requireToken(TokenType::Id).getValue();
+	requireToken(TokenType::Dot);
 	std::string atr_name = requireToken(TokenType::Id).getValue();
 	auto dev_statement = std::make_unique<DevStatement>(dev_name, atr_name);
 	requireToken(TokenType::LBracket);

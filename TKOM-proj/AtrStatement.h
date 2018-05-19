@@ -12,7 +12,7 @@ public:
 
 	std::string toString() const override;
 
-private:
+protected:
 	std::string dev_name;
 	std::string atr_name;
 };

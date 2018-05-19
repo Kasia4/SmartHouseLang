@@ -124,6 +124,7 @@
     <ClInclude Include="expression/EvalExpression.h" />
     <ClInclude Include="expression\RelExpression.h" />
     <ClInclude Include="expression/IntConstant.h" />
+    <ClInclude Include="GroupActionStatement.h" />
     <ClInclude Include="GroupStatement.h" />
     <ClInclude Include="Interpreter.h" />
     <ClInclude Include="expression/BoolExpression.h" />
@@ -149,6 +150,7 @@
     <ClCompile Include="expression/BoolValue.cpp" />
     <ClCompile Include="expression/EvalExpression.cpp" />
     <ClCompile Include="expression/IntConstant.cpp" />
+    <ClCompile Include="GroupActionStatement.cpp" />
     <ClCompile Include="GroupStatement.cpp" />
     <ClCompile Include="Interpreter.cpp" />
     <ClCompile Include="expression/LogicalExpression.cpp" />

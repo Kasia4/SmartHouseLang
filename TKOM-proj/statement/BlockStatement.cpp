@@ -3,9 +3,11 @@
 #include <sstream>
 std::string BlockStatement::toString() const
 {
-	std::stringstream instr;
-	std::for_each(instructions.begin(), instructions.end(), [&instr](const auto& stat) { instr << stat->toString(); });
-	return instr.str();
+	std::stringstream output;
+	output << "{";
+	std::for_each(instructions.begin(), instructions.end(), [&output](const auto& stat) { output << stat->toString() << " "; });
+	output << "}";
+	return output.str();
 }
 
 void BlockStatement::add_instructions(StatementPtr statement)

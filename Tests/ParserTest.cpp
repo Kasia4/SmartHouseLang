@@ -15,6 +15,7 @@
 #include "../TKOM-proj/GroupStatement.cpp"
 #include "../TKOM-proj/AtrStatement.cpp"
 #include "../TKOM-proj/ProcedureCall.cpp"
+#include "../TKOM-proj/Procedure.cpp"
 #include "../TKOM-proj/Parameter.cpp"
 
 void ParserTest::SetUp() {
@@ -226,3 +227,36 @@ TEST_F(ParserTest, testParseAtrStatement)
 	auto parsed = parser->parseAtrStatement()->toString();
 	EXPECT_EQ(parsed, "ATR pralka temperatura");
 }
+
+TEST_F(ParserTest, testParseProcedureCall)
+{
+	setInput("DO przykladowa(1, 2)");
+	parser->consumeToken();
+	auto parsed = parser->parseProcedureCall()->toString();
+	EXPECT_EQ(parsed, "DO przykladowa(1 2 )");
+}
+
+TEST_F(ParserTest, testParseDevStatement)
+{
+	setInput("piec.grzej(15)");
+	parser->consumeToken();
+	auto parsed = parser->parseDevStatement()->toString();
+	EXPECT_EQ(parsed, "piec.grzej(15)");
+}
+
+TEST_F(ParserTest, testParseBlockStatement)
+{
+	setInput("{piec.grzej(15) pralka.wlacz()}");
+	parser->consumeToken();
+	auto parsed = parser->parseBlockStatement()->toString();
+	EXPECT_EQ(parsed, "{piec.grzej(15) pralka.wlacz() }");
+}
+
+TEST_F(ParserTest, testParseProcedure)
+{
+	setInput("PROCEDURE przykladowa{piec.grzej(15) pralka.wlacz()}");
+	parser->consumeToken();
+	auto parsed = parser->parseProcedure()->toString();
+	EXPECT_EQ(parsed, "PROCEDURE przykladowa{piec.grzej(15) pralka.wlacz() }");
+}
+

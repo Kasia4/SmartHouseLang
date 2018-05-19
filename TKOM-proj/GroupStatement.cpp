@@ -10,7 +10,6 @@ std::string GroupStatement::toString() const
 {
 	std::stringstream output;
 	output << "GROUP " << identifier << " OF " << type;
-	//content is not needed for tests
-	//std::for_each(components.begin(), components.end(), [&output](const auto& stat) { output << stat; });
+	std::for_each(components.begin(), components.end(), [&output](const auto& stat) { output << stat; });
 	return output.str();
 }
