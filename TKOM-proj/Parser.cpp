@@ -183,7 +183,7 @@ StatementPtr Parser::parseCycleStatement()
 	return std::make_unique<CycleStatement>(std::move(proc_call), std::move(time_val));
 }
 
-bool Parser::isAcceptableTokenType(TokenType accept_type) const
+bool Parser::isAcceptableTokenType(const TokenType& accept_type) const
 {
 	return scanner->getCurrToken().getType() == accept_type;
 }

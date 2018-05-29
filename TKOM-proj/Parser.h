@@ -66,7 +66,7 @@ public:
 	ScriptBodyPtr parseScriptBody();
 
 	bool isAcceptableTokenType(const std::list<TokenType>& accept_types) const;
-	bool isAcceptableTokenType(TokenType accept_type) const;
+	bool isAcceptableTokenType(const TokenType& accept_type) const;
 	Token requireToken(const std::list<TokenType>& accept_types);
 	Token requireToken(const TokenType& accept_type);
 	void consumeToken();
