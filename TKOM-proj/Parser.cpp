@@ -122,7 +122,6 @@ StatementPtr Parser::parseBlockStatement()
 	auto block_statement = std::make_unique<BlockStatement>();
 	while (!isAcceptableTokenType(TokenType::RCBracket))
 	{
-		//TODO uncomment after parseStatement() impl
 		auto statement = parseStatement();
 		block_statement->add_instructions(std::move(statement));
 	}
@@ -130,7 +129,6 @@ StatementPtr Parser::parseBlockStatement()
 	return block_statement;
 }
 
-//TODO implement main logic of basic statements parsing
 StatementPtr Parser::parseStatement()
 {
 	StatementPtr statement;
@@ -138,7 +136,6 @@ StatementPtr Parser::parseStatement()
 	{
 		statement = parseGroupStatement();
 	}
-	//TODO: Add parse CycleStatement
 	else if (isAcceptableTokenType(TokenType::Cycle))
 	{
 		statement = parseCycleStatement();
