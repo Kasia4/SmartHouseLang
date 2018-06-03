@@ -2,8 +2,7 @@
 #include <list>
 #include <memory>
 #include "AtrStatement.h"
-#include "../expression/ArithmExpression.h"
-using ArithmExpressionPtr = std::unique_ptr<ArithmExpression>;
+using StatementPtr = std::unique_ptr<Statement>;
 class DevStatement :
 	public AtrStatement
 {
@@ -12,9 +11,9 @@ public:
 	DevStatement(std::string& dev_name, std::string& atr_name) : AtrStatement(dev_name, atr_name) {};
 	~DevStatement() = default;
 
-	void add_arguments(ArithmExpressionPtr val);
+	void add_arguments(StatementPtr val);
 	std::string toString() const override;
 private:
-	std::list<ArithmExpressionPtr> arguments;
+	std::list<StatementPtr> arguments;
 };
 

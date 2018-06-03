@@ -18,6 +18,8 @@ public:
 	void add_statement(StatementPtr statement);
 	
 	std::string toString() const;
+
+	void run();
 private:
 	std::list<VariablePtr> variables;
 	std::list<ProcedurePtr> procedures;

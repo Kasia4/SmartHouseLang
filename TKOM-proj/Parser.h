@@ -63,6 +63,8 @@ public:
 	StatementPtr parseProcedureCall();
 	ParameterPtr parseParameter();
 
+	StatementPtr parseArgument();
+
 	ScriptBodyPtr parseScriptBody();
 
 	bool isAcceptableTokenType(const std::list<TokenType>& accept_types) const;

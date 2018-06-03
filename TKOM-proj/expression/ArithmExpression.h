@@ -1,6 +1,7 @@
 #pragma once
+#include "../statement/Statement.h"
 #include <string>
-class ArithmExpression
+class ArithmExpression: public Statement
 {
 public:
 	virtual ~ArithmExpression() = default;

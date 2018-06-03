@@ -248,7 +248,7 @@ StatementPtr Parser::parseDevStatement()
 	while (!isAcceptableTokenType(TokenType::RBracket))
 	{
 		//TODO: parse different types of arguments id -> lambda or attribute else arithm
-		auto arg = parseArithmExpression();
+		auto arg = parseArgument();
 		dev_statement->add_arguments(std::move(arg));
 		if (isAcceptableTokenType(TokenType::Comma))
 		{
@@ -322,6 +322,15 @@ ParameterPtr Parser::parseParameter()
 	std::string type = requireToken(TokenType::Id).getValue();
 	std::string name = requireToken(TokenType::Id).getValue();
 	return std::make_unique<Parameter>(type, name);
+}
+
+StatementPtr Parser::parseArgument()
+{
+	if (isAcceptableTokenType(TokenType::Id)) {
+		return parseAtrStatement();
+	}
+	else
+		return parseArithmExpression();
 }
 
 ScriptBodyPtr Parser::parseScriptBody()

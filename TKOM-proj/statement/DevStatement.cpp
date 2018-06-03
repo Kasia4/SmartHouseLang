@@ -1,7 +1,7 @@
 #include "DevStatement.h"
 #include <sstream>
 #include <algorithm>
-void DevStatement::add_arguments(ArithmExpressionPtr val)
+void DevStatement::add_arguments(StatementPtr val)
 {
 	arguments.push_back(std::move(val));
 }
