@@ -131,30 +131,28 @@ StatementPtr Parser::parseBlockStatement()
 
 StatementPtr Parser::parseStatement()
 {
-	StatementPtr statement;
 	if (isAcceptableTokenType(TokenType::Group))
 	{
-		statement = parseGroupStatement();
+		return parseGroupStatement();
 	}
 	else if (isAcceptableTokenType(TokenType::Cycle))
 	{
-		statement = parseCycleStatement();
+		return parseCycleStatement();
 	}
 	else if (isAcceptableTokenType(TokenType::Wait))
 	{
-		statement = parseWaitStatement();
+		return parseWaitStatement();
 	}
 	else if (isAcceptableTokenType(TokenType::Action))
 	{
-		statement = parseProcedureCall();
+		return parseProcedureCall();
 	}
 	else if (isAcceptableTokenType(TokenType::Ifs))
 	{
-		statement = parseCondStatement();
+		return parseCondStatement();
 	}
-	else
-		statement = parseDevStatement();
-	return statement;
+	
+	return parseDevStatement();
 }
 
 StatementPtr Parser::parseCondStatement()

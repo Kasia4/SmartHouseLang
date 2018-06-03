@@ -41,5 +41,5 @@ std::string ScriptBody::toString() const
 
 void ScriptBody::run() const
 {
-
+	std::for_each(instructions.begin(), instructions.end(), [](const auto& stat) { stat->run(); });
 }

@@ -7,4 +7,6 @@ std::string WaitStatement::toString() const
 
 void WaitStatement::run() const
 {
+	auto period = duration->calculate();
+	//sleep for period
 }
