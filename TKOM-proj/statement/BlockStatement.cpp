@@ -10,6 +10,10 @@ std::string BlockStatement::toString() const
 	return output.str();
 }
 
+void BlockStatement::run() const
+{
+}
+
 void BlockStatement::add_instructions(StatementPtr statement)
 {
 	instructions.push_back(std::move(statement));

@@ -13,3 +13,7 @@ std::string GroupStatement::toString() const
 	std::for_each(components.begin(), components.end(), [&output](const auto& stat) { output << stat; });
 	return output.str();
 }
+
+void GroupStatement::run() const
+{
+}

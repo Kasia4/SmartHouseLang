@@ -13,6 +13,7 @@ public:
 
 	void add_arguments(StatementPtr val);
 	std::string toString() const override;
+	void run() const override;
 private:
 	std::list<StatementPtr> arguments;
 };

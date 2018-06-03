@@ -14,3 +14,7 @@ std::string ProcedureCall::toString() const
 	output << ")";
 	return output.str();
 }
+
+void ProcedureCall::run() const
+{
+}

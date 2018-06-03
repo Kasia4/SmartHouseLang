@@ -11,6 +11,7 @@ public:
 	void add_component(std::string& name);
 	~GroupStatement() = default;
 	std::string toString() const override;
+	void run() const override;
 private:
 	std::list<std::string> components;
 };

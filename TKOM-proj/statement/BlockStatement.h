@@ -11,6 +11,7 @@ public:
 	~BlockStatement() = default;
 
 	std::string toString() const override;
+	void run() const override;
 	void add_instructions(StatementPtr statement);
 private:
 	std::list<StatementPtr> instructions;

@@ -6,3 +6,7 @@ std::string CycleStatement::toString() const
 	output << proc_call->toString() << duration->toString();
 	return output.str();
 }
+
+void CycleStatement::run() const
+{
+}

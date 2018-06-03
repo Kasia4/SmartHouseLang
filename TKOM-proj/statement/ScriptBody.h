@@ -19,7 +19,7 @@ public:
 	
 	std::string toString() const;
 
-	void run();
+	void run() const;
 private:
 	std::list<VariablePtr> variables;
 	std::list<ProcedurePtr> procedures;

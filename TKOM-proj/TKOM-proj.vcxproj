@@ -145,6 +145,7 @@
     <ClInclude Include="statement/WaitStatement.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="expression\ArithmExpression.cpp" />
     <ClCompile Include="statement/AtrStatement.cpp" />
     <ClCompile Include="statement/CondStatement.cpp" />
     <ClCompile Include="statement/CycleStatement.cpp" />

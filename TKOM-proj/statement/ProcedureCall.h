@@ -15,6 +15,7 @@ public:
 
 	void add_arguments(ArithmExpressionPtr val);
 	std::string toString() const override;
+	void run() const override;
 private:
 	std::string proc_name;
 	std::list<ArithmExpressionPtr> arguments;

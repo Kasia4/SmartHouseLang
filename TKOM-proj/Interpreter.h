@@ -8,7 +8,7 @@ public:
 	Interpreter(std::unique_ptr<Parser> parser) : parser(std::move(parser)) {};
 	~Interpreter() = default;
 
-	void run();
+	void run() const;
 
 private:
 	std::unique_ptr<Parser> parser;

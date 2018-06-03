@@ -7,3 +7,7 @@ std::string CondStatement::toString() const
 	output << condition->toString() << " THEN " << if_instr->toString() << " ELSE " << else_instr->toString();
 	return output.str();
 }
+
+void CondStatement::run() const
+{
+}

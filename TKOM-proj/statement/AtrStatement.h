@@ -10,6 +10,7 @@ public:
 		dev_name(dev_name), atr_name(atr_name) {};
 	~AtrStatement() = default;
 
+	void run() const override;
 	std::string toString() const override;
 
 protected:

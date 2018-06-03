@@ -15,7 +15,9 @@ public:
 		duration(std::move(duration))
 	{};
 	~CycleStatement() = default;
+
 	std::string toString() const override;
+	void run() const override;
 private:
 	StatementPtr proc_call;
 	ArithmExpressionPtr duration;

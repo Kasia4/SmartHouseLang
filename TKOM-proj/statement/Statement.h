@@ -4,7 +4,7 @@ class Statement
 {
 public:
 	virtual ~Statement() = default;
-	//virtual void execute() = 0;
+	virtual void run() const = 0;
 	virtual std::string toString() const = 0;
 };
 

@@ -7,3 +7,7 @@ std::string GroupActionStatement::toString() const
 	output << gr_name << "." << action;
 	return output.str();
 }
+
+void GroupActionStatement::run() const
+{
+}

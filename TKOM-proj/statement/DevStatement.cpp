@@ -14,3 +14,7 @@ std::string DevStatement::toString() const
 	output << "\)";
 	return output.str();
 }
+
+void DevStatement::run() const
+{
+}

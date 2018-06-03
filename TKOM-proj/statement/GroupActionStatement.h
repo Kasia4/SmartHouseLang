@@ -12,6 +12,7 @@ public:
 	~GroupActionStatement() = default;
 
 	std::string toString() const override;
+	void run() const override;
 private:
 	std::string gr_name;
 	std::string action;

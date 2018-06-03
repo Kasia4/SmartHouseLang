@@ -39,6 +39,7 @@ std::string ScriptBody::toString() const
 	return output.str();
 }
 
-void ScriptBody::run()
+void ScriptBody::run() const
 {
+
 }

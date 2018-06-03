@@ -12,6 +12,7 @@ public:
 	~WaitStatement() = default;
 
 	std::string toString() const override;
+	void run() const override;
 private:
 	ArithmExpressionPtr duration;
 };

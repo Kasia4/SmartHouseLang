@@ -15,7 +15,9 @@ public:
 		else_instr(std::move(else_instr))
 	{};
 	~CondStatement() = default;
+
 	std::string toString() const override;
+	void run() const override;
 private:
 	BoolExpressionPtr condition;
 	StatementPtr if_instr;
