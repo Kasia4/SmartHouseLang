@@ -1,8 +1,16 @@
 #pragma once
+#include <memory>
+#include "Parser.h"
 class Interpreter
 {
 public:
-	Interpreter() = default;
+	Interpreter() = delete;
+	Interpreter(std::unique_ptr<Parser> parser) : parser(std::move(parser)) {};
 	~Interpreter() = default;
+
+	void run();
+
+private:
+	std::unique_ptr<Parser> parser;
 };
 
