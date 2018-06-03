@@ -2,16 +2,25 @@
 #include <unordered_map>
 #include <string>
 #include <memory>
-#include "statement\Statement.h"
-using StatementPtr = std::unique_ptr<Statement>;
+#include "statement\Variable.h"
+#include "statement\Procedure.h"
+
+using VariablePtr = std::unique_ptr<Variable>;
+using ProcedurePtr = std::unique_ptr<Procedure>;
+
 class SymbolTable
 {
 public:
 	SymbolTable() = default;
 	~SymbolTable() = default;
-	void add_symbol(std::string& name, StatementPtr symbol);
-	const StatementPtr& get_symbol(std::string& name);
+
+	void add_variable(std::string& name, VariablePtr symbol);
+	const VariablePtr& get_variable(std::string& name);
+	void add_procedure(std::string& name, ProcedurePtr symbol);
+	const ProcedurePtr& get_procedure(std::string& name);
+
 private:
-	std::unordered_map<std::string, StatementPtr> symbols;
+	std::unordered_map<std::string, ProcedurePtr> procedures;
+	std::unordered_map<std::string, VariablePtr> variables;
 };
 

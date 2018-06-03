@@ -10,4 +10,8 @@ std::string CondStatement::toString() const
 
 void CondStatement::run() const
 {
+	if (condition->calculate())
+		if_instr->run();
+	else
+		else_instr->run();
 }
