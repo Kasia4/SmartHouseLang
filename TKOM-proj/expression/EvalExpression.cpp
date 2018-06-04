@@ -9,6 +9,10 @@ int EvalExpression::calculate() const
 	return calculate(leftValue, rightValue);
 }
 
+void EvalExpression::run() const
+{
+}
+
 std::string EvalExpression::toString() const
 {
 	//TODO: operator toString()

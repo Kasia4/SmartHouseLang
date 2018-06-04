@@ -115,6 +115,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Device.h" />
+    <ClInclude Include="Devices.h" />
+    <ClInclude Include="Oven.h" />
     <ClInclude Include="statement/AtrStatement.h" />
     <ClInclude Include="statement/CondStatement.h" />
     <ClInclude Include="statement/CycleStatement.h" />
@@ -143,9 +146,11 @@
     <ClInclude Include="Token.h" />
     <ClInclude Include="statement/Variable.h" />
     <ClInclude Include="statement/WaitStatement.h" />
+    <ClInclude Include="WashingMachine.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="expression\ArithmExpression.cpp" />
+    <ClCompile Include="Device.cpp" />
+    <ClCompile Include="Oven.cpp" />
     <ClCompile Include="statement/AtrStatement.cpp" />
     <ClCompile Include="statement/CondStatement.cpp" />
     <ClCompile Include="statement/CycleStatement.cpp" />
@@ -172,6 +177,7 @@
     <ClCompile Include="Token.cpp" />
     <ClCompile Include="statement/Variable.cpp" />
     <ClCompile Include="statement/WaitStatement.cpp" />
+    <ClCompile Include="WashingMachine.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -20,3 +20,7 @@ std::string IntConstant::toString() const
 {
 	return value_str;
 }
+
+void IntConstant::run() const
+{
+}

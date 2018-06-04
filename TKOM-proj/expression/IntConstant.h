@@ -12,6 +12,7 @@ public:
 	int calculate() const override;
 	int toInt(std::string value);
 	std::string toString() const override;
+	virtual void run() const;
 private:
 	std::string value_str;
 	int value;

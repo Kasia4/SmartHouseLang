@@ -17,8 +17,11 @@ public:
 		ex_operator(ex_operator)
 	{};
 	~EvalExpression() = default;
+
 	int calculate() const override;
+	virtual void run() const;
 	std::string toString() const override;
+
 private:
 	ArithmExpressionPtr l_operand;
 	ArithmExpressionPtr r_operand;
