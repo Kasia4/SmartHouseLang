@@ -120,6 +120,7 @@
     <ClInclude Include="DeviceCreator.h" />
     <ClInclude Include="Devices.h" />
     <ClInclude Include="Oven.h" />
+    <ClInclude Include="SemanticChecker.h" />
     <ClInclude Include="statement/AtrStatement.h" />
     <ClInclude Include="statement/CondStatement.h" />
     <ClInclude Include="statement/CycleStatement.h" />
@@ -155,6 +156,7 @@
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="DeviceCreator.cpp" />
     <ClCompile Include="Oven.cpp" />
+    <ClCompile Include="SemanticChecker.cpp" />
     <ClCompile Include="statement/AtrStatement.cpp" />
     <ClCompile Include="statement/CondStatement.cpp" />
     <ClCompile Include="statement/CycleStatement.cpp" />

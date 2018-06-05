@@ -18,6 +18,7 @@
 #include "statement/CycleStatement.h"
 #include "statement/WaitStatement.h"
 #include "statement/ScriptBody.h"
+
 using ScannerPtr = std::unique_ptr<Scanner>;
 using VariablePtr = std::unique_ptr <Variable>;
 using ParameterPtr = std::unique_ptr <Parameter>;
@@ -25,19 +26,21 @@ using ArithmExpressionPtr = std::unique_ptr<ArithmExpression>;
 using BoolExpressionPtr = std::unique_ptr<BoolExpression>;
 using StatementPtr = std::unique_ptr<Statement>;
 using ProcedurePtr = std::unique_ptr<Procedure>;
-using ProcedureCallPtr = std::unique_ptr<ProcedureCall>;
 using ScriptBodyPtr = std::unique_ptr<ScriptBody>;
 using TokenType = Token::TokenType;
+
 class Parser
 {
 public:
 	Parser() = delete;
-	Parser(ScannerPtr scanner) : scanner(std::move(scanner))
+	Parser(ScannerPtr scanner) :
+		scanner(std::move(scanner))
 	{
 		init();
 	};
-	void init();
 	~Parser() = default;
+
+	void init();
 	//TODO (after whole expr impl) consider templates or traits
 	ArithmExpressionPtr parseArithmExpression();
 	ArithmExpressionPtr parseSubAddExpression();
@@ -80,6 +83,7 @@ private:
 	BoolExpressionPtr parseBoolExpression(BoolExpressionPtr leftEval);
 
 	ScannerPtr scanner;
+
 	std::list<TokenType> add_operators;
 	std::list<TokenType> mult_operators;
 	std::list<TokenType> log_operators;
