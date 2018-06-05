@@ -75,6 +75,7 @@ public:
 	Token requireToken(const std::list<TokenType>& accept_types);
 	Token requireToken(const TokenType& accept_type);
 	void consumeToken();
+
 private:
 	ArithmExpressionPtr parseArithmExpression(ArithmExpressionPtr leftEval);
 	ArithmExpressionPtr parseSubAddExpression(ArithmExpressionPtr leftEval);
