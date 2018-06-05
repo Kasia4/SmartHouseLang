@@ -8,7 +8,7 @@ public:
 		OFF,
 	};
 	Device() = delete;
-	Device(std::string& ipAddress) : ipAddress(ipAddress), state(State::OFF) {};
+	Device(const std::string & ipAddress) : ipAddress(ipAddress), state(State::OFF) {};
 	virtual ~Device() = default;
 
 	std::string getIpAddress() const;

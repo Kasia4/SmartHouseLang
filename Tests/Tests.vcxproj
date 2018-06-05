@@ -33,12 +33,14 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClInclude Include="DeviceCreatorTest.h" />
     <ClInclude Include="ParserTest.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="ScannerTest.h" />
     <ClInclude Include="SourceReaderTest.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DeviceCreatorTest.cpp" />
     <ClCompile Include="ParserTest.cpp" />
     <ClCompile Include="ScannerTest.cpp" />
     <ClCompile Include="SourceReaderTest.cpp" />

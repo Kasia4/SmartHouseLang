@@ -4,7 +4,7 @@ class Oven : public Device
 {
 public:
 	Oven() = delete;
-	Oven(std::string& ipAddress) : Device(ipAddress) {};
+	Oven(const std::string & ipAddress) : Device(ipAddress) {};
 	~Oven() = default;
 	float getTemperature() const;
 private:

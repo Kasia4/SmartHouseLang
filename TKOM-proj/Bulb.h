@@ -5,7 +5,7 @@ class Bulb :
 {
 public:
 	Bulb() = delete;
-	Bulb(std::string& ipAddress) : Device(ipAddress) {};
+	Bulb(const std::string & ipAddress) : Device(ipAddress) {};
 	~Bulb() = default;
 	float getLevel() const;
 private:
