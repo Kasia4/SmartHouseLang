@@ -2,11 +2,3 @@
 
 
 
-WashingMachine::WashingMachine()
-{
-}
-
-
-WashingMachine::~WashingMachine()
-{
-}

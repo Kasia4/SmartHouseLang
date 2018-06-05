@@ -6,5 +6,8 @@ public:
 	Oven() = delete;
 	Oven(std::string& ipAddress) : Device(ipAddress) {};
 	~Oven() = default;
+	float getTemperature() const;
+private:
+	float temperature;
 };
 

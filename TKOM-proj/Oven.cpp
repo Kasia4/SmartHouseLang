@@ -1,12 +1,6 @@
 #include "Oven.h"
 
-
-
-Oven::Oven()
+float Oven::getTemperature() const
 {
-}
-
-
-Oven::~Oven()
-{
+	return temperature;
 }

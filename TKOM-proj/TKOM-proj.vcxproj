@@ -115,7 +115,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Bulb.h" />
     <ClInclude Include="Device.h" />
+    <ClInclude Include="DeviceCreator.h" />
     <ClInclude Include="Devices.h" />
     <ClInclude Include="Oven.h" />
     <ClInclude Include="statement/AtrStatement.h" />
@@ -149,7 +151,9 @@
     <ClInclude Include="WashingMachine.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bulb.cpp" />
     <ClCompile Include="Device.cpp" />
+    <ClCompile Include="DeviceCreator.cpp" />
     <ClCompile Include="Oven.cpp" />
     <ClCompile Include="statement/AtrStatement.cpp" />
     <ClCompile Include="statement/CondStatement.cpp" />
