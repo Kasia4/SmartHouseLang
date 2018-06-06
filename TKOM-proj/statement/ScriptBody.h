@@ -4,6 +4,7 @@
 #include "Variable.h"
 #include <memory>
 #include <list>
+#include <unordered_map>
 using StatementPtr = std::unique_ptr<Statement>;
 using ProcedurePtr = std::unique_ptr<Procedure>;
 using VariablePtr = std::shared_ptr <Variable>;
@@ -21,8 +22,8 @@ public:
 
 	void run() const;
 private:
-	std::list<VariablePtr> variables;
-	std::list<ProcedurePtr> procedures;
+	std::unordered_map<std::string, ProcedurePtr> procedures;
+	std::unordered_map<std::string, VariablePtr> variables;
 	std::list<StatementPtr> instructions;
 
 };

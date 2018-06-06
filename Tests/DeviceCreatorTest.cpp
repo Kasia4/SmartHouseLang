@@ -11,18 +11,18 @@ void DeviceCreatorTest::SetUp()
 
 TEST_F(DeviceCreatorTest, testCreateOven)
 {
-	auto dev = deviceCreator->createDevice("piec", "1.1.1.1");
+	auto dev = deviceCreator->createDevice("Piec", "1.1.1.1");
 	EXPECT_EQ(dev->getIpAddress(), "1.1.1.1");
 }
 
 TEST_F(DeviceCreatorTest, testCreateWashingMachine)
 {
-	auto dev = deviceCreator->createDevice("pralka", "1.1.1.1");
+	auto dev = deviceCreator->createDevice("Pralka", "1.1.1.1");
 	EXPECT_EQ(dev->getIpAddress(), "1.1.1.1");
 }
 
 TEST_F(DeviceCreatorTest, testCreateBulb)
 {
-	auto dev = deviceCreator->createDevice("zarowka", "1.1.1.1");
+	auto dev = deviceCreator->createDevice("Zarowka", "1.1.1.1");
 	EXPECT_EQ(dev->getIpAddress(), "1.1.1.1");
 }

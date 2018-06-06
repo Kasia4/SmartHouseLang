@@ -8,6 +8,7 @@ public:
 		type(type), identifier(identifier) {};
 	virtual ~Parameter() = default;
 	std::string toString() const;
+	std::string getName() const;
 protected:
 	std::string type;
 	std::string identifier;
