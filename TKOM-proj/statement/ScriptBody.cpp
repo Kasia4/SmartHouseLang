@@ -29,6 +29,24 @@ void ScriptBody::add_statement(StatementPtr statement)
 	instructions.push_back(std::move(statement));
 }
 
+const VariablePtr & ScriptBody::get_variable(std::string & name)
+{
+	if (variables.count(name))
+	{
+		std::runtime_error("Symbol was not defined");
+	}
+	return variables[name];
+}
+
+const ProcedurePtr & ScriptBody::get_procedure(std::string & name)
+{
+	if (procedures.count(name))
+	{
+		std::runtime_error("Symbol was not defined");
+	}
+	return procedures[name];
+}
+
 std::string ScriptBody::toString() const
 {
 	std::stringstream output;

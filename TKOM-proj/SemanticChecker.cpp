@@ -2,4 +2,5 @@
 
 void SemanticChecker::check(std::unique_ptr<ScriptBody>& script) const
 {
+	
 }

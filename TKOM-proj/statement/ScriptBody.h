@@ -18,6 +18,9 @@ public:
 	void add_procedure(ProcedurePtr procedure);
 	void add_statement(StatementPtr statement);
 	
+	const VariablePtr& get_variable(std::string& name);
+	const ProcedurePtr& get_procedure(std::string& name);
+
 	std::string toString() const;
 
 	void run() const;
