@@ -2,10 +2,10 @@
 #include <unordered_map>
 #include <string>
 #include <memory>
-#include "Device.h"
+#include "statement\Variable.h"
 #include "statement\Procedure.h"
 
-using DevicePtr = std::unique_ptr<Device>;
+using VariablePtr = std::unique_ptr<Variable>;
 using ProcedurePtr = std::unique_ptr<Procedure>;
 
 class SymbolTable
@@ -14,13 +14,13 @@ public:
 	SymbolTable() = default;
 	~SymbolTable() = default;
 
-	void add_variable(std::string& name, DevicePtr symbol);
-	const DevicePtr& get_variable(std::string& name);
+	void add_variable(std::string& name, VariablePtr symbol);
+	const VariablePtr& get_variable(std::string& name);
 	void add_procedure(std::string& name, ProcedurePtr symbol);
 	const ProcedurePtr& get_procedure(std::string& name);
 
 private:
 	std::unordered_map<std::string, ProcedurePtr> procedures;
-	std::unordered_map<std::string, DevicePtr> variables;
+	std::unordered_map<std::string, VariablePtr> variables;
 };
 

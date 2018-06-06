@@ -272,7 +272,8 @@ VariablePtr Parser::parseVarDeclaration()
 	std::string type = requireToken(TokenType::Id).getValue();
 	std::string identifier = requireToken(TokenType::Id).getValue();
 	std::string bind_addr = parseDevAddress();
-	return std::make_unique<Variable>(type, identifier, bind_addr);
+	auto device = device_creator->createDevice(type, bind_addr);
+	return std::make_shared<Variable>(type, identifier, bind_addr, std::move(device));
 }
 
 std::string Parser::parseDevAddress()

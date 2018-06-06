@@ -8,11 +8,12 @@ class Interpreter
 {
 public:
 	Interpreter() = delete;
-	Interpreter(ParserPtr parser, SemanticCheckerPtr sem_check) :
+	Interpreter(ParserPtr parser, SemanticCheckerPtr sem_check, DeviceCreatorPtr dev_cr) :
 		parser(std::move(parser)),
 		semantic_checker(std::move(sem_check)) {};
 	~Interpreter() = default;
 
+	//ScriptBodyPtr parse();
 	void run() const;
 
 private:

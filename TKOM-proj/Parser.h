@@ -18,9 +18,11 @@
 #include "statement/CycleStatement.h"
 #include "statement/WaitStatement.h"
 #include "statement/ScriptBody.h"
+#include "DeviceCreator.h"
 
+using DeviceCreatorPtr = std::unique_ptr<DeviceCreator>;
 using ScannerPtr = std::unique_ptr<Scanner>;
-using VariablePtr = std::unique_ptr <Variable>;
+using VariablePtr = std::shared_ptr <Variable>;
 using ParameterPtr = std::unique_ptr <Parameter>;
 using ArithmExpressionPtr = std::unique_ptr<ArithmExpression>;
 using BoolExpressionPtr = std::unique_ptr<BoolExpression>;
@@ -36,6 +38,7 @@ public:
 	Parser(ScannerPtr scanner) :
 		scanner(std::move(scanner))
 	{
+		device_creator = std::make_unique<DeviceCreator>();
 		init();
 	};
 	~Parser() = default;
@@ -84,6 +87,7 @@ private:
 	BoolExpressionPtr parseBoolExpression(BoolExpressionPtr leftEval);
 
 	ScannerPtr scanner;
+	DeviceCreatorPtr device_creator;
 
 	std::list<TokenType> add_operators;
 	std::list<TokenType> mult_operators;

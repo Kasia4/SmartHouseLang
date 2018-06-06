@@ -1,6 +1,6 @@
 #include "SymbolTable.h"
 
-void SymbolTable::add_variable(std::string& name, DevicePtr symbol)
+void SymbolTable::add_variable(std::string& name, VariablePtr symbol)
 {
 	if (variables.count(name))
 	{
@@ -9,7 +9,7 @@ void SymbolTable::add_variable(std::string& name, DevicePtr symbol)
 	variables[name] = std::move(symbol);
 }
 
-const DevicePtr& SymbolTable::get_variable(std::string & name)
+const VariablePtr& SymbolTable::get_variable(std::string & name)
 {
 	if (variables.count(name))
 	{

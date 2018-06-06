@@ -6,7 +6,7 @@
 #include <list>
 using StatementPtr = std::unique_ptr<Statement>;
 using ProcedurePtr = std::unique_ptr<Procedure>;
-using VariablePtr = std::unique_ptr <Variable>;
+using VariablePtr = std::shared_ptr <Variable>;
 class ScriptBody
 {
 public:
